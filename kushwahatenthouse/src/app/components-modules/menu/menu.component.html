@@ -1,0 +1,8 @@
+<div class="relative dropdown">
+    <div class="dropbtn" [ngStyle]="{'padding':padding,'background':background,'color':color}">
+        {{menu_list[0].menu}}
+    </div>
+    <div class="dropdown-content" [ngClass]="{'left':left,'right':!left}">
+        <a href="{{d.link}}" *ngFor="let d of menu_list[0].submenu">{{d.text}}</a>
+    </div>
+</div>

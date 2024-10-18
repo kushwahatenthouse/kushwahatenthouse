@@ -1,0 +1,51 @@
+<div #divbox class="m-autocomplete-div" [ngStyle]="{'width':st_width,'height':size_data[size]['height']}">
+    <label
+        *ngIf="label_position=='inside'"
+        [ngClass]="{'low_font':disabled,'active':value.length > 0 || focus_s}"
+        [ngStyle]="{'top':size_data[size]['lb_top'],'left':size_data[size]['lb_left']}"
+        class="placeholder_css"
+        (click)="open_dropdown();autocomplete1.focus()">{{placeholder_value}}</label>
+
+    <input
+        #autocomplete1
+        [ngClass]="{'input_style':(!error&&!disabled),'disable_stype':disabled}"
+        [ngStyle]="{'height':size_data[size]['height'],'padding':size_data[size]['padding'],'border':error_border,'border-radius':error_border_radius}"
+        [value]="selectedValue"
+        type="text"
+        [placeholder]="label_position!='inside'?placeholder_value:''"
+        tabindex="1"
+        [readOnly]="readonly"
+        (focus)="focus()"
+        (click)="open_dropdown()"
+        (keyup)="value_entered(autocomplete1.value,$event)"
+    >
+    <span [ngStyle]="{'line-height':size_data[size]['height']}" (click)="open_dropdown()" class="drop_angle">
+        <i *ngIf="(show_drop_down ) && !disabled" class="fa fa-angle-up" aria-hidden="true"></i><i *ngIf="(!show_drop_down) && !disabled" class="fa fa-angle-down" aria-hidden="true"></i>
+    </span>
+
+    <div *ngIf="show_drop_down && !disabled && new_data.length>0" [ngClass]="{'left_set':left_set,'right_set':!left_set}" style="position: absolute;"
+        class="drop_down_options card" [ngStyle]="{'top':size_data[size]['height'],'width':drop_down_width}">
+        <div class="drop_down_div">
+            <div *ngIf="selectedValue!='' && allowUnselect" style="overflow:hidden;display: flex;" data-cl="" [attr.data-cll]="d_d_list" class="{{d_d_list}}"
+                (click)="option_clicked({value:'',bold_value:''})">
+                <span  style="flex-grow: 1;" class="drop_down_value"> 
+                </span>
+            </div>
+            <div style="overflow:hidden;display: flex;" data-cl="" [attr.data-cll]="d_d_list" class="{{d_d_list}}"
+                *ngFor="let dat of new_data" [ngClass]="{'blue_slection':dat.value==selectedValue}"
+                (click)="option_clicked(dat)">
+                <span title={{dat.value}} style="flex-grow: 1;" [ngClass]="{'font_bold':dat.value==selectedValue}" class="drop_down_value"
+                    [innerHTML]="dat.bold_value"> 
+                </span>
+                <span *ngIf="dat.image_icon!='' && thumbnail_shape!='none' && ((dat.thumbnail != undefined && dat.thumbnail.length > 4) || (dat.image != undefined && dat.image.length>12))"
+                    style="flex:20px 0;"><i *ngIf="dat.image_icon=='icon'" class="{{dat.thumbnail}}"
+                    [ngStyle]="{'color':dat.color}"></i><img [ngClass]="{'round':thumbnail_shape=='circle'}"
+                    style="width:20px;height: 20px;" src="{{dat.image}}">
+                </span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="no_data && new_data.length==0" class="drop_down_options" [ngStyle]="{'top':size_data[size]['height']}">
+        <div style="margin:30px auto;text-align: center;font-size: 16px;" [innerHTML]="no_data_msg"></div>
+    </div>
+</div>

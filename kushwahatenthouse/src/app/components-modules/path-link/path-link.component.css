@@ -1,0 +1,16 @@
+.phonenav {
+    background:#ffffff;
+    overflow-x: auto;
+	overflow-y: hidden;
+    white-space: nowrap;
+    line-height: 32px;
+}
+div.phonenav div {
+	font-size:13px;
+    display: inline-block;
+	vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+	max-height: 46px;
+	max-width: 120px;
+}

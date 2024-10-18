@@ -1,0 +1,108 @@
+<div class="profile-card-div">
+    <figure class="profile-card">
+        <img style="height: 200px;width: 100%;" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="profile crd" />
+        <figcaption>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample4.jpg" alt="profile-sample4" class="profile" />
+            <h2>Hans Down<span>Engineer</span></h2>
+            <p>I'm looking for something that can deliver a 50-pound payload of snow on a small feminine target. Can you suggest something? Hello...? </p>
+          
+            <div>
+                <apx-social-media
+                    [position]="'horizontal'"
+                    [color]="'#065dc7'"
+                >
+                </apx-social-media>
+            </div>
+        </figcaption>
+    </figure>
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+    <div class="padding-8">
+        <div class="relative overflow-hide">
+            <div style="width:80px;height:88px;" class="inline-block border">
+                <img src="../../assets/logo.png" style="margin-top: 4px;" width="100%">
+            </div>
+            <div class="inline-block absolute padding-8 overflow-hide max-w">
+                <div class="font-16 overflow-hide bold">
+                    <div class="text1">Title of crd Title of card Title of card</div>
+                </div>
+                <div class="font-14 margin-ts overflow-hide">
+                    <div class="text2 justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="border-top: 1px solid #cccccc;height: 33px;" class="padding-8 font-14 relative overflow-hide">
+        <span *ngIf="highlight1!=''">{{return_short_form(h1_value)}}&nbsp;<img src="../../assets/{{highlight1}}.svg" width="14px" style="margin-bottom: -1px;"></span>&nbsp;&nbsp;&nbsp;
+        <span *ngIf="highlight2!=''">{{return_short_form(h2_value)}}&nbsp;<img src="../../assets/{{highlight2}}.svg" width="14px" style="margin-bottom: -1px;"></span>&nbsp;&nbsp;&nbsp;
+        <span *ngIf="highlight3!=''">{{return_short_form(h3_value)}}&nbsp;<img src="../../assets/{{highlight3}}.svg" width="14px" style="margin-bottom: -1px;"></span>&nbsp;&nbsp;&nbsp;
+        <span *ngIf="date!='1008888888707'" class="float-right">{{date | date:'MMM d, y'}}</span>
+    </div>
+</div>   
+<br>
+<div class="card" style="max-width: 600px;padding-bottom: 12px;">
+    <div class="padding-12">
+        <div class="relative">
+            <div class="font-22 overflow-hide bold center margin-ts">
+                Title of card Title of card Title of card
+            </div>
+            <div class="font-14 date-color margin-top">
+                <span *ngIf="date!='1008888888707'">Author: <span class="color1">Rajesh</span></span><span *ngIf="date!='1008888888707'" class="float-right">{{date | date:'MMM d, y'}}</span>
+            </div>
+            <div class="font-16 justify margin-ts overflow-hide margin-top">
+                <div class="">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card" style="max-width: 600px;">
+    <div class="padding-12">
+        <div class="relative">
+            <div class="container">
+                <div class="font-18 overflow-hide margin-ts subcontainer">
+                    <div class="absolute color-white cursor" style="background: white;width: 24px;height: 24px;top:2px;right: 2px;" (click)="full_image('../../assets/nature.jpg')"><img src="../../assets/expand.svg" width="16px" style="margin: 3px;"></div>
+                    <div class="absolute padding-8 bottom" style="z-index: 2;background: #111111;opacity: .7;color:white;width: 100%;">hello this is captions for this image so take it carefully</div>
+                    <img src="../../assets/nature.jpg" width="100%">
+                </div>
+            </div>
+            <div class="font-16 justify margin-ts overflow-hide margin-top">
+                <h3>Heading for this card <span class="font-14 float-right margin-ts" style="font-weight: 400;color:#111">{{1898888888777 | date:'MMM d, y'}}</span></h3>
+                <div class="">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="border-top: 1px solid #cccccc;height: 32px;" class="padding-8 font-14">
+        <span *ngIf="true" class="float-right">{{1898888888777 | date:'MMM d, y'}}</span>
+    </div>
+</div>
+
+<div *ngIf="hide_full_image" style="position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: white;z-index: 9999;">
+    <div *ngIf="hide_full_image" style="text-align: center;margin-top: 20px;">
+        <div style="overflow-y: auto;"><span class="padding-8 float-right" (click)="hide_full_image=false"><img  src="../../assets/times.svg" width="16px"></span></div><br>
+        <div><img src={{full_image_link}} style="width:80%;max-height: 70vh;" ></div>
+        <div class="margin-ts padding-8">
+            <div style="width: 100px;" class="padding-12 border" (click)="hide_full_image=false">Close</div>
+        </div>
+    </div>
+</div>

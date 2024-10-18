@@ -1,0 +1,7 @@
+<div class="row center" style="max-width: 1200px;margin:auto" inViewport [inViewportOptions]="{ threshold: [0]}" (inViewportAction)="onIntersection($event)">
+    <div class="col-4-2 padding-12" *ngFor="let para of data;let i = index">
+        <div [className]="'card invp-card animatepara ivory-bg-low active'+(showAnime?i:'f')" [ngClass]="{'inactive':!showAnime}" [innerHTML]="para">
+           
+        </div>
+    </div>
+</div>

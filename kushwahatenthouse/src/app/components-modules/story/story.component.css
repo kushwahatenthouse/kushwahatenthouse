@@ -1,0 +1,107 @@
+.story-thumbnail{
+    width: 70px;
+    height: 70px;
+    border-radius: 50% !important;
+    overflow: hidden;
+    border-collapse: separate;
+    border:3px solid #ffffff;
+    cursor: pointer;
+}
+.story-seen{
+    /* outline: 3px solid #ccc; */
+    background-image: linear-gradient(to right, #ccc, #ccc); /* Replace with your desired gradient colors */
+    background-clip: padding-box; /* Ensure the gradient is applied only within the border */
+    border: 3px solid transparent; /* Set the initial border */
+    padding: 3px;
+}
+.story-unseen{
+    /* outline: 3px solid #111111; */
+    background-image: linear-gradient(to right, #f48124, #21313c); /* Replace with your desired gradient colors */
+    background-clip: padding-box; /* Ensure the gradient is applied only within the border */
+    border: 3px solid transparent; /* Set the initial border */
+    padding: 3px;
+    /* outline: 3px solid #111111;
+    outline-color: linear-gradient(orange,yellow) 30; */
+    /* border:3px solid #111; */
+    /* border-width: 3px;
+    border-color: #111;
+    border-style: solid; */
+    /* border-image: linear-gradient(to bottom,red 0%, yellow 100%); */
+}
+/* .story-unseen::before{
+    border-radius: 50% !important;
+    content: '';
+    background-image: linear-gradient(to bottom,red 0%, yellow 100%);
+    top:-3px;
+    left:-3px;
+    bottom:-3px;
+    right:-3px;
+    position: absolute;
+} */
+.sthumbnail-div{
+    width:75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.show-story{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    overflow-y: hidden;
+}
+.story-data{
+    z-index: 100000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow:hidden;
+    background: #ffffff;
+}
+.progressBdiv{
+    width: calc(100% - 8px);
+    height: 3px;
+    border-radius: 2px;
+    background: rgb(112, 107, 107);
+    display: inline-block;
+}
+.progress-div{
+    height: 2px;left: 0px;
+    background: #ffffff;
+}
+.fullpbar{
+    width:100% !important;
+}
+.startProgressBar{
+    animation: startProgress 5s linear forwards;
+}
+.pauseProgressbar{
+    animation-play-state: paused;
+}
+.restartProgressbar{
+    animation-play-state: running;
+}
+@keyframes startProgress {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+/* :host ::ng-deep .slick-list{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+img{
+    pointer-events: none;
+}
+.trenduphg{
+    padding-top: 12px;
+}

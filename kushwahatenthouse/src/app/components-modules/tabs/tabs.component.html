@@ -1,0 +1,16 @@
+<div class="apx-tabs relative" [ngStyle]="{'height':maxHeight}">
+    <div #tabsheader class="apx-tabs-h padding-left absolute" [ngClass]="{'small_scroll':isMobile}">
+        <div *ngFor="let da of data ; let i = index" id="apx-tabs-id-{{i}}" [ngClass]="{'selectedTab':da.show}" (click)="showTabs(da,i)">{{da.title}}</div>
+    </div>
+    <div class="apx-tabs-content relative" [ngClass]="{'wrap-content-border':borderAround}" [ngStyle]="{'height':maxHeight1,'top':maxHeight2}">
+        <div class=" apx-tabs-mc" style="top:-2px;width: 100%;" *ngFor="let da of data ; let i = index" [ngClass]="{'showTabs':da.show}">
+            <ng-container *ngIf="da.template ; else sectionhere">
+                <ng-container [ngTemplateOutlet]="da.template" [ngTemplateOutletContext]="{data: da}"></ng-container>
+            </ng-container>
+            <ng-template #sectionhere>
+                {{da.content}}
+            </ng-template>
+            
+        </div>
+    </div>
+</div>

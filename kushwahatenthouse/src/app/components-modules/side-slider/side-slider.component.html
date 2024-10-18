@@ -1,0 +1,40 @@
+
+<div [ngStyle]="{'left':nav_width}" style="z-index: 100000;overflow-y: hidden;" class="sidebar">
+    <div style="padding:4px 8px;position: relative;border-bottom:1px solid #727272;margin-bottom: 10px;height: 70px;">
+        <div style="display: inline-block;max-width: 80px;">
+            <img src="../../../assets/logo/cossquare-logo.png" alt="cosSquare Logo" width="60px">
+        </div>
+        <div style="display: inline-block;position: absolute;left: 80px;top:13px">
+            <h4 class="font-18 single-line">cosSquare</h4>
+            <div class="font-14 single-line">e-Content Platform</div>
+        </div>
+    </div>
+    <div style="max-height: calc( 100% - 100px);overflow: auto;">
+        <div style="padding-left: 12px;padding-right: 6px;">
+            <apx-tree-list
+                [tree_data]="slider_data"
+                (clicked)="optionClicked($event);"
+            ></apx-tree-list>
+        </div>
+        
+        <div style="padding:8px;margin-top:16px">
+            <apx-button
+                [width]="'full'"
+                [size]="'S'"
+                [label]="'Subscribe'"
+            ></apx-button>
+        </div>
+        <div style="padding:8px;margin-top:-4px">
+            <apx-button
+                [width]="'full'"
+                [size]="'S'"
+                [label]="'Close'"
+                [button_type]="'secondary'"
+                (clicked)="nav_toggle()"
+            ></apx-button>
+        </div>
+    </div>
+    
+        
+</div>
+<div (click)="nav_toggle()" *ngIf="!nav_toggle_came" style="z-index: 99999;position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: #ccc;opacity: .5;"></div>

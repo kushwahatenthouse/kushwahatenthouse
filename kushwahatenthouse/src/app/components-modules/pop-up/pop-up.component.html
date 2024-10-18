@@ -1,0 +1,24 @@
+<div *ngIf="type=='subscribe'">
+   <div id="popup-wrapper" class="popup-container" (click)="close_popup($event)">
+     <div class="popup-content" [ngStyle]="{'min-width':width}">
+       <span id="close" (click)="close_popup('')">&times;</span>
+        <div style="text-align:center;color:#065dc7"><i class="fa fa-envelope" style="font-size:48px;margin-bottom: 12px;" aria-hidden="true"></i><br>
+          <div style="font-size:20px;font-weight:600">SUBSCRIBE NOW</div>
+        </div>
+        <div style="margin-top: 9px;font-size: 13px;font-family: opensans;text-align: justify;" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+        <br>
+        <apx-input
+          [type]="'normal'"
+          [size]="'S'"
+        ></apx-input><div
+        style="margin-top: 8px;"></div>
+        <apx-button
+          [width]="'full'"
+          [label]="'Subscribe'"
+          [button_type]="'emphasized'"
+        ></apx-button>
+      </div>
+   </div>
+</div>
+  
+   

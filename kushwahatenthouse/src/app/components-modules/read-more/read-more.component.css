@@ -1,0 +1,7 @@
+.rm-readMore{
+    max-height: 126px;
+    overflow-y: hidden;
+}
+.rm-shortData{
+    transition: heigh 2s;
+}

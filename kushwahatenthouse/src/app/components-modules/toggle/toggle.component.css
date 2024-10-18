@@ -1,0 +1,76 @@
+button{
+    border:none;
+    outline: none;
+    background: white;
+    position: relative;
+}
+.normal_tg{
+    color: #111;
+    letter-spacing: 0;
+}
+.disable_tg{
+    color:#ccc;
+    letter-spacing: 0;
+}
+.idle{
+    opacity: 1;
+}
+.disabled{
+    border: 1px solid #ccc;
+}
+.left_toggle{
+    border-radius: 4px 0 0 4px;
+}
+.right_toggle{
+    border-radius: 0px 4px 4px 0px;
+}
+.left_tg{
+    border: 1px solid #ccc;
+}
+.right_tg{
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.selected{
+    border: 1px solid #111;
+    background: #145da0;
+    color: #ffffff;
+}
+.selected1{
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    border-right: 1px solid #111;opacity: 1;
+    background: #145da0;
+    color: #ffffff;
+}
+.selected2{
+    border-right: 1px solid #111;opacity: 1;
+}
+.hovered{
+    border:1px solid #e6ebf0;
+    background: #eee;
+}
+.hovered1{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;background: #e6ebf0;
+}
+.hovered2{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;background: #e6ebf0;
+}
+.hovered3{
+    border-right:1px solid #ccc;
+}
+.hovered4{
+    border-top:1px solid #ccc;background: #e6ebf0;
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+}
+.keyboard_tab:focus{
+    opacity: 1;
+    outline-offset: 2px;
+    outline: 2px solid #111;
+    z-index: 10;
+}

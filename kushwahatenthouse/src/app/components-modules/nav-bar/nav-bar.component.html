@@ -1,0 +1,42 @@
+<div id="top2" [ngClass]="{'fix_bottom':position=='bottom' && !sticky_header,'nav-bottom':position=='bottom' && sticky_header,'sticky_header':sticky_header,'shadow_bottom':position=='top' && navShadow,'shadow_top':position=='bottom' && navShadow}" class="cornflower_b apx-nav-header" style="background: white;">
+    <div id="nav_bar" class="hide-small hide-medium">
+        <div >
+            <div class="mainphonenav not_select cornflower_b" style="margin:0 auto;text-align: center;">
+                <div *ngFor="let d of data" (click)="nav_clicked(d)" [ngClass]="{'selected_nav':d.selected}" [ngStyle]="{'width':navWidth,'min-width':minWidth}" style="position: relative;"><i *ngIf="isNavIcon" class="{{d.icon}} absolute nav_icon"></i><div [ngClass]="{'nav_text_mt':isNavIcon}" [innerHTML]="d.text"></div></div>
+           
+                <!-- <a href="/"><div class="whiteborder padding fontsize-120">Booking</div></a>
+                <a id="p_nav" href="/party_house/"><i class="fa fa-hotel"></i><div class="fontsize-85">Party House</div></a>
+                <a id="v_nav" href="/vehicle/"><i class="fa fa-car-alt"></i><div class="fontsize-85">Vehicle</div></a>
+                <a id="d_nav" href="/decoration/"><i class="fa fa-holly-berry"></i><div class="fontsize-85">Decoration</div></a>
+                <a id="e_nav" href="/lighting/" ><i class="fa fa-plug"></i><div class="fontsize-85">Lighting</div></a>
+                <a id="c_nav" href="/caterer/" ><i class="fa fa-utensils"></i><div class="fontsize-85">Caterer</div></a>
+                <a id="ev_nav" href="/event/" ><i class="fa fa-calendar-alt"></i><div class="fontsize-85">Event Org.</div></a>
+                <a class="right border" href="/help/"><i class="fa fa-question"></i><div class="fontsize-85">Help</div></a>
+                <div id="t_box" class="absolute_p white padding card bblue5 hide" style="z-index:1;margin:2px 150px;min-width:500px;max-width:650px">
+                    <div class="loader"></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="cornflower_b hide-large">
+        <div class="phonenav small_scroll textwhite apx-nav-height">
+            <a [routerLink]="d.link" [routerLinkActiveOptions]="{exact: (d.link=='/'?true:false)}" queryParamsHandling="merge" routerLinkActive="selected_nav" *ngFor="let d of data" class="apx-nav-height" [ngStyle]="{'width':navWidth,'min-width':minWidth}" style="position: relative;">
+                <!-- <i *ngIf="isNavIcon" class="{{d.icon}} absolute nav_icon"><div class="font-13 margin-top1" [innerHTML]="d.text"></div></i> -->
+                <img *ngIf="isNavIcon" src="{{d.img}}" width="20px" height="20px" class="nav_icon"><div class="font-13 margin-top1" [innerHTML]="d.text"></div>
+                <!-- <div [ngClass]="{'nav_text_mt':isNavIcon}" [innerHTML]="d.text"></div> -->
+            </a>
+           
+            <!-- <div id="v_nav_s" href="/vehicle/"><i class="fa fa-car-alt"></i><div class="fontsize-85">Vehicle</div></div>
+            <div id="d_nav_s" href="/decoration/"><i class="fa fa-holly-berry"></i><div class="fontsize-85">Decoration</div></div>
+            <div id="e_nav_s" href="/lighting/" ><i class="fa fa-plug"></i><div class="fontsize-85">Lighting</div></div> -->
+            <!-- <a id="e_nav_s" href="/lighting/" ><i class="fa fa-plug"></i><div class="fontsize-85">Lighting</div></a>
+            <a id="e_nav_s" href="/lighting/" ><i class="fa fa-plug"></i><div class="fontsize-85">Lighting</div></a>
+            <a id="e_nav_s" href="/lighting/" ><i class="fa fa-plug"></i><div class="fontsize-85">Lighting</div></a>
+            <a id="e_nav_s" href="/lighting/" ><i class="fa fa-plug"></i><div class="fontsize-85">Lighting</div></a>
+            
+            <a id="c_nav_s" href="/caterer/" ><i class="fa fa-utensils"></i><div class="fontsize-85">Caterer</div></a>
+            <a id="ev_nav_s" href="/event/" ><i class="fa fa-calendar-alt"></i><div class="fontsize-85">Event Org.</div></a>
+            <a class="border" href="/help/"><i class="fa fa-question"></i><div class="fontsize-85">Help</div></a> -->
+        </div>
+    </div>
+</div>

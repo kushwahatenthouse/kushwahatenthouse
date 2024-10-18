@@ -1,0 +1,84 @@
+div.phonenav {
+    background:#ffffff;
+    overflow-x: auto;
+	overflow-y: hidden;
+    white-space: nowrap;
+	text-align: center;
+	max-width: 100%;width: 100%;
+    /* line-height: 48px; */
+}
+div.phonenav a {
+    display: inline-block;
+    text-decoration: none;
+	/* max-height: 48px; */
+	max-width: 120px;
+	/* border:1px solid red; */
+}
+
+div.mainphonenav{
+	background:#ffffff;
+    overflow-x: auto;
+	overflow-y: hidden;
+    white-space: nowrap;
+    line-height: 56px;
+}
+.mainphonenav div{
+	font-size:12px;
+    display: inline-block;
+	vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+	max-height: 56px;
+	max-width: 120px;
+}
+.mainphonenav div:hover{
+	color:#00684A;
+}
+.nav-bottom{
+	bottom:0px;
+}
+.fix_bottom{
+	position: fixed !important;
+	bottom: 0px !important;
+	height: 54px;
+	overflow-y: hidden;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	z-index: 99;
+}
+.nav_icon{
+	/* top:50%; */
+	/* left:50%; */
+	text-align: center;
+	/* transform: translateX(-50%); */
+	margin-top: 7px;
+}
+.margin-top1{
+	margin-top:-2px;
+}
+
+.selected_nav{
+	color:#00684A;
+	font-weight: 600;
+}
+.shadow_bottom{
+	box-shadow: 0px 8px 8px -8px rgb(17,17,17,0.5);
+}
+.border_bottom{
+	border-bottom: 1px solid #111;
+}
+.shadow_top{
+	box-shadow: 0px 8px 8px 8px rgb(17,17,17,0.5);
+}
+
+@media (max-width:1290px) and (min-width:601px){
+    .apx-nav-height{
+		height: 56px;
+    }
+}
+@media (max-width:600px){
+    .apx-nav-height{
+		height:48px;
+    }
+}

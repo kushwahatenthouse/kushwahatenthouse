@@ -1,0 +1,69 @@
+<div *ngIf="section_type=='type2'" style="font-family: sans-serif;max-width: 500px;" class="card1">
+    <div class="padding-12" style="display: flex;border-bottom: 1px solid rgb(230, 230, 230);">
+        <div style="flex:0 60px" class="image image-60">
+            <img src="../../assets/book.jpg">
+        </div>
+        <div style="flex-grow: 1;padding-left:8px">
+            <div style="font-weight: 600;">Title u <div class="text-line1" style="font-weight: 400;font-size: 80%;color:#a8a7a7"> message of tilte message of tilte </div></div>
+        </div>
+        <div style="flex:0 90px;margin-top:3px;">
+            <apx-button
+                [size]="'XS'"
+                [label]="'View All'"
+            ></apx-button>
+        </div>
+    </div>
+    <div style="width: 100%;display: inline-flex;">
+        <div style="width: 50%;display: inline-block;border-right: 1px solid rgb(230, 230, 230);height: inherit;align-items: stretch;">
+            <div class="padding-12" [ngClass]="{'middle-div':card_no==3,'border-bottom':card_no==4}">
+                <div class="image image-80">
+                    <img src="../../assets/book.jpg">
+                </div>
+                <div class="font-90 margin-ts text-line1">Title name</div>
+                <div class="font-80">Price :ddd</div>
+            </div>
+            <div *ngIf="card_no==4" class="padding-12">
+                <div class="image image-80">
+                    <img src="../../assets/book.jpg">
+                </div>
+                <div class="font-90 margin-ts text-line1">Title name</div>
+                <div class="font-80">Price :ddd</div>
+            </div>
+        </div>
+        <div style="width: 50%;display: inline-block;left: 50%;">
+            <div class="padding-12" style="border-bottom: 1px solid rgb(230, 230, 230);">
+                <div class="image image-80">
+                    <img src="../../assets/book.jpg">
+                </div>
+                <div class="font-90 margin-ts text-line1">Title name</div>
+                <div class="font-80">Price :ddd</div>
+            </div>
+            <div class="padding-12">
+                <div class="image image-80">
+                    <img src="../../assets/book.jpg">
+                </div>
+                <div class="font-90 margin-ts text-line1">Title name for this product items</div>
+                <div class="font-80">Price :ddd</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="section_type=='type1'" style="max-width: 970px;margin:0 auto;overflow-y: auto;padding:8px">
+    <div [ngClass]="{'card':card}">
+        <div *ngIf="heading!=''" class="padding-12 title-part" [ngStyle]="{'background':background,'color':color}">
+           {{heading}}
+        </div>
+        <div style="overflow-y: auto;width: 100%;padding:2px">
+            <div *ngFor="let d of data" class="inline-block card-contanier">
+                <img (click)="open_link(d.link)" width="100%" src="{{d.img}}">
+            </div>
+        </div>
+    </div>
+</div>

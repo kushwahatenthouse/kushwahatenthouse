@@ -1,0 +1,33 @@
+<div class="margin-top">
+    <div>Add Your Rating</div>
+    <div class="margin-ts not_select">
+        <i class="fa fa-star-o" id="f1-star" (click)="star_clicked('f1-star')"></i>&nbsp;
+        <i class="fa fa-star-o" id="f2-star" (click)="star_clicked('f2-star')"></i>&nbsp;
+        <i class="fa fa-star-o" id="f3-star" (click)="star_clicked('f3-star')"></i>&nbsp;
+        <i class="fa fa-star-o" id="f4-star" (click)="star_clicked('f4-star')"></i>&nbsp;
+        <i class="fa fa-star-o" id="f5-star" (click)="star_clicked('f5-star')"></i>
+    </div><br> 
+    <div class="margin-ts">
+        <apx-input
+            [background]="'#ffffff'"
+            [label]="'Add Email'"
+            [size]="'S'"
+        ></apx-input>
+    </div>
+    <div class="margin-ts">
+        <apx-input
+            [type]="'div'"
+            [label]="'add a reply...'"
+            [large_div]="true"
+        ></apx-input>
+    </div>
+    <div class="margin-ts">
+        <apx-button
+            class="float-right"
+            [label]="'Comment'"
+            [button_type]="'normal'"
+            [size]="'S'"
+        ></apx-button>
+    </div>
+        <br><br><br>
+</div>

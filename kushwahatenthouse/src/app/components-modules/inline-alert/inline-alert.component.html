@@ -1,0 +1,23 @@
+<ng-container *ngIf="singleLine; else multiLine">
+    <div *ngIf="show_inline_alt" style="display: flex;border:1px solid #959595;">
+        <div style="flex:0 40px;min-width: 40px;border-right:1px solid #959595;vertical-align: middle;" class="padding-12 center ivory-bg relative"><i class="{{data['icon']}} color2 absolute mid"></i></div>
+        <div style="flex-grow: 1;padding-left: 12px;" class="padding-12 font-13 color2">{{data['msg']}}</div>
+        <div *ngIf="data['close']" style="flex:0 40px;" class="padding-12 center">
+            <img src="../../assets/icon/close.png" (click)="close_alert()" class="cursor" style="width: 14px;" alt="close it">
+        </div>
+    </div>
+</ng-container>
+<ng-template #multiLine>
+    <div *ngIf="show_inline_alt" class="card1 {{style_type[data['type']][2]}}" style="border-radius: 6px 0 0 6px;font-family: sans-serif;">
+        <div style="display: flex;border-radius: 4px 0 0 0;" class="{{style_type[data['type']][0]}}">
+            <div style="flex:0 40px;min-width: 40px" class="padding-12 center"><i class="{{data['icon']}} {{style_type[data['type']][1]}}"></i></div>
+            <div style="flex-grow: 1;padding-left: 0px;" class="padding-12 font-15">{{data['title']}}</div>
+            <div *ngIf="data['close']" style="flex:0 40px;" class="padding-12 center"><i (click)="close_alert()" class="fa fa-close alert-c"></i></div>
+        </div>
+        <div style="display: flex;">
+            <div style="flex:0 40px;min-width: 40px;" class="padding-12"></div>
+            <div style="flex-grow: 1;padding-left: 0px;padding-bottom: 20px;" class="padding-12 font-14" [innerHTML]="data['msg']"></div>
+        </div>
+    </div>
+</ng-template>
+

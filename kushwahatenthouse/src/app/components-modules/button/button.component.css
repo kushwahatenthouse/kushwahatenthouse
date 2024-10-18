@@ -1,0 +1,205 @@
+button{
+    border: none;
+    color:#111;
+    outline: none;
+    -webkit-user-select: none;
+    align-items: center;justify-content: center;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.apx-button:active{
+    border-radius: 2px 2px 2px 2px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform: scale(0.95);
+    transform:scale(0.95)
+}
+
+
+.btn_disable{
+    background: #e6ebf0;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform: scale(1) !important;
+    transform:scale(1) !important;
+}
+
+
+
+.box_shadow1:focus{
+    box-shadow: 0 0 0 2px #000;
+    border: 2px solid #fff;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+}
+
+/* primary button*/
+.btn-primary,.btn-Primary{
+    background: #21313c;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    color: #fff !important;
+    opacity: 1;
+    font-weight: 400 !important;
+}
+.btn-primary:hover,.btn-Primary:hover{
+    background: #001E2B;
+    border-radius: 2px 2px 2px 2px;
+    color:#fff !important;
+    opacity: 1;
+}
+.btn-primary:focus ~:hover,.btn-Primary:focus ~:hover{
+    box-shadow: 0 0 0 2px #000;
+    border: 2px solid #fff;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+}
+
+/* emphasized button*/
+.btn-emphasized,.btn-Emphasized{
+    background:#00684A;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    color: #fff !important;
+    opacity: 1;
+    font-weight: 400 !important;
+}
+.btn-emphasized:hover,.btn-Emphasized:hover{
+    background: #00684A;
+    color: #fff;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+}
+.btn-emphasized:focus ~:hover,.btn-Emphasized:focus ~:hover{
+    box-shadow: 0 0 0 2px #00684A;
+    border: 2px solid #fff;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+}
+/* secondary button*/
+.btn-secondary,.btn-Secondary{
+    background: #fff;
+    box-shadow: inset 0 0 0 1px #21313c;
+    border-radius: 2px 2px 2px 2px;
+    color:#111 !important;
+    font-weight: 600;
+    text-align: center;
+    opacity: 1;
+}
+.btn-secondary:hover,.btn-Secondary:hover{
+    background: #fff;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: inset 0 0 0 1px #000;
+    opacity: 1;
+}
+.btn-secondary:focus ~:hover,.btn-Secondary:focus ~:hover{
+    box-shadow: 0 0 0 2px #000;
+    border: 2px solid #fff;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+    color:#111;
+}
+
+/* tertiary button*/
+.btn-tertiary,.btn-Tertiary{
+    background: transparent;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    color: #111 !important;
+    opacity: 1;
+}
+.btn-tertiary:hover,.btn-Tertiary:hover{
+    background: #eee;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+}
+.btn-tertiary:focus ~:hover,.btn-Tertiary:focus ~:hover{
+    box-shadow: 0 0 0 2px #000;
+    border: 2px solid #fff;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+    color:#111;
+}
+.btn-tertiary:active,.btn-Tertiary:active{
+    background: #ccc !important;
+    border-radius: 2px 2px 2px 2px;
+    opacity: 1;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform: scale(0.95);
+    transform:scale(0.95)
+}
+
+
+
+/* size */
+.btn-L{
+    padding:0px 32px;
+    font:normal normal bold 18px opensans;
+    height:48px;
+}
+.btn-M{
+    padding:02px 28px;
+    font:normal normal bold 16px opensans;
+    height:40px;
+}
+.btn-S{
+    padding:0px 24px;
+    font:normal normal bold 14px opensans;
+    line-height:32px;
+    height: 32px;
+}
+.btn-XS{
+    padding:0px 20px 0px 20px;
+    font:normal normal 500 12px opensans;
+    height:28px;
+    line-height:28px;
+}
+/* icon */
+.ibtn-L{
+    font:normal normal bold 18px opensans;
+    height:48px;
+    width: 48px;
+}
+.ibtn-M{
+    font:normal normal bold 16px opensans;
+    height:40px;
+    width: 40px;
+}
+.ibtn-S{
+    font:normal normal bold 14px opensans;
+    height:32px;
+    width: 32px;
+}
+.ibtn-XS{
+    font:normal normal 500 12px opensans;
+    height:28px;
+    width: 28px;
+}
+
+/* button width */
+.btn-full{
+    width:100%;
+}
+.bth-limited{
+    width: none;
+}
+
+.btn-icon_text-left-S{
+    padding-right:18px
+}

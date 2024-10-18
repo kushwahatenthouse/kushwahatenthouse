@@ -1,0 +1,15 @@
+<label *ngIf="!disable && !error" [ngStyle]="{'width':width_type,'padding-left':size_data[size]['dimension'],'padding-top':size_data[size]['top']}" class="container apx-checkbox" [ngClass]="{'shover_cl':state!='Indeterminate' && size=='S', 'lhover_cl':state!='Indeterminate' && size=='L', 'container2':type=='Emphasised','container1':type==('primary' || type=='Primary'),'scontainer':size=='S', 'lcontainer':size=='L'}">
+    <div (click)="label_clicked(checkbox_state)" style="padding-left:8px;" [innerHTML]="label" ></div>
+    <input type="checkbox" (click)="clicked(checkbox_state,$event)" readonly #checkbox_state [checked]="state=='Selected'" [indeterminate]="state=='Indeterminate'"> 
+    <span class="checkmark" [ngStyle]="{'width':size_data[size]['dimension'],'height':size_data[size]['dimension']}"></span>
+</label>
+    
+<label *ngIf="disable && !error" [ngStyle]="{'width':width_type,'padding-left':size_data[size]['dimension'],'padding-top':size_data[size]['top']}" (click)="prevent($event)" class="dcontainer apx-checkbox" [ngClass]="{'sdcontainer':size=='S','ldcontainer':size=='L'}"><div style="padding-left: 8px;" [innerHTML]="label" ></div>
+    <input type="checkbox" [checked]="state=='Selected'" [indeterminate]="state=='Indeterminate'" >
+    <span class="checkmark" [ngStyle]="{'width':size_data[size]['dimension'],'height':size_data[size]['dimension']}"></span>
+</label> 
+
+<label *ngIf="error" [ngStyle]="{'width':width_type,'padding-left':size_data[size]['dimension'],'padding-top':size_data[size]['top']}" (click)="prevent($event)" class="econtainer apx-checkbox"><div style="padding-left: 8px;" [innerHTML]="label" ></div>
+    <input type="checkbox" [checked]="state=='Selected'" [indeterminate]="state=='Indeterminate'" > 
+    <span class="checkmark" [ngStyle]="{'width':size_data[size]['dimension'],'height':size_data[size]['dimension']}"></span> 
+</label>

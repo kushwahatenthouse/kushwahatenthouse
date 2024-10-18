@@ -1,0 +1,11 @@
+<!-- <div class="apx-tree-view" *ngFor="let data of formated_data" [ngStyle]="{'font-size':font_size}" (click)="expand_tree(data)" title={{data.text}} [ngClass]="{'apx-display-hide':!data.show,'apx-tree-view-one-line':olf,'apx-tree-selected':data.expanded}">
+    <div [routerLink]="[data.url]" (click)="open_page(data)" [ngStyle]="{'padding-left':padding_left(data.id)}"><i *ngIf="data.icon" class="{{data.icon}} tv_icon"></i><span [ngClass]="{'selectedText':(pathText!='' && pathText==data.url)}">{{data.text}}</span><img *ngIf="data.child" [ngClass]="{'apx-rotate90':data.expanded}" src="./../../assets/chevron-right-solid.svg" class="apx-arrow-chevrov" /></div>
+</div> -->
+<!-- 'padding-left':padding_left(data.id) -->
+
+
+
+
+<div class="apx-tree-diagram not_select" (click)="open_page($event)" #treeDiagram id="treeDiagram">
+    
+</div>

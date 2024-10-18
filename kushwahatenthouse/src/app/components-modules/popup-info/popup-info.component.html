@@ -1,0 +1,8 @@
+<span>&nbsp;<img class="cursor" (click)="showPopupfn()" src="../../assets/icon/info.png" alt="info" style="width:16px"></span>
+<apx-alert
+    [buttons]="[]"
+    [(showAlert)]="showPopup"
+>
+    <div title class="relative inline-block font-15 color1"><img class="cursor absolute" src="../../assets/icon/info.png" alt="info" style="width:14px;top:3px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{title}}</div>
+    <div content class="font-14 popup-info-lh color2" [innerHTML]="content"></div>
+</apx-alert>

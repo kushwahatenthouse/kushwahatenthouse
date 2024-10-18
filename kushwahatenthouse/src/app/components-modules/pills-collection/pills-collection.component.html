@@ -1,0 +1,14 @@
+<div class="apx-p-c not_select" [ngClass]="{'hide-scrollbar':isMobile}">
+    <div *ngFor="let dat of data" class="apx-pc-div">
+        <apx-pills
+            [label]="dat.text"
+            [size]="dat.size!=undefined && dat.size ? dat.size:'M'"
+            [selected]="dat.selected?dat.selected:false"
+            [background]="background"
+            (clicked)="pillsclicked($event,dat)"
+            [icon_name]="dat.icon"
+            [icon_position]="dat.icon_position"
+            [disabled]="dat.disabled"
+        ></apx-pills>
+    </div>
+</div>
