@@ -1,0 +1,59 @@
+<div  class="padding-8 story" [ngClass]="{'small_scroll':isMobile,'scroll-x':!isMobile}" style="overflow-x: auto;white-space: nowrap;">
+    <div class="inline-block center sthumbnail-div"> 
+        <img src="../../../assets/icon/trend-up.png" class="story-thumbnail trenduphg">
+        <div class="font-12 color-green bold">Highlights</div>
+    </div>
+    <ng-container  *ngIf="storyData.length == 0">
+        <div *ngFor="let data of ['1','2','3']" class="inline-block sthumbnail-div"> 
+            <div class="story-thumbnail ivory-bg story-unseen"></div>
+            <div class="font-12 margin-ts">Loading...</div>
+        </div>
+    </ng-container>
+    
+    <div *ngFor="let data of storyDataA" class="inline-block center sthumbnail-div" (click)="showStoryF(data)"> 
+        <img [src]="data.thumbnail" [ngClass]="{'story-seen':data.seen,'story-unseen':!data.seen}" class="story-thumbnail">
+        <div class="font-12">{{data.storyName}}</div>
+    </div>
+</div>
+<!-- <div *ngIf="storyData.length == 0"><br></div> -->
+
+<div class="show-story" *ngIf="showStory">
+    <div style="padding-right:8px;width: 100%;margin:auto;max-width: 1000px;">
+        
+        <div *ngFor="let data of stories; let i = index" style="display: inline-block;height: 3px;" [ngStyle]="{'width':progressBwidth}">
+            <div style="width: 8px;display: inline-block;"></div>
+            <div class="relative progressBdiv">
+                <div class="absolute progress-div" [ngClass]="{'startProgressBar':data.fileLoaded && storyNo===i,'fullpbar':data.seen,'pauseProgressbar':pauseProgressBar,'restartProgressbar':!pauseProgressBar}"></div>
+            </div>
+        </div> 
+        
+    </div>
+    <div style="position:fixed;top:28px;right:3%;cursor:pointer" (click)="closeStory()">
+        <img src="../../assets/icon/close-white.png" width="24px" alt="">
+    </div>
+    <div style="position:fixed;top:28px;left:3%;color: white;">
+        <div class="inline-block center"> 
+            <img [src]="profileDetiails.thumbnail" style="width: 48px;height: 48px;border-radius: 50%;">
+            <div class="font-14">{{profileDetiails.name}}</div>
+        </div>
+    </div>
+</div>
+<div class="story-data not_select" *ngIf="showStory" style="background: #111;">
+    <div style="max-width: 1000px;margin:auto;height: 100vh;" (mousedown)="stopProgressBar()" (touchstart)="stopProgressBar()" (mouseup)="resumeProgressBar()" (touchend)="resumeProgressBar()">
+        <ngx-slick-carousel style="height:100vh" class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideConfig" 
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)"
+                            >
+            <div ngxSlickItem *ngFor="let slide of stories; let i = index" class="slide" style="height: 100vh;width: 100%;">
+                <div style="display: flex;justify-content: center;position: relative;height: 100vh;width: 100%;">
+
+                    <img [src]="(slide.preFload ? slide.path:'')" alt="" (load)="imageLoaded(i)" style="max-height: 100vh;max-width: 100%;position: absolute;top:50%;transform: translateY(-50%);">
+                    <img *ngIf="!slide.fileLoaded" src="../../assets/loading1.gif" width="42px" alt="loading" style="max-height: 100vh;max-width: 100%;position: absolute;top:50%;transform: translateY(-50%);">
+            
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</div>

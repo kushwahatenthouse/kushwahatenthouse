@@ -1,0 +1,19 @@
+<div class="apx-file-upload">
+    <div class="apx-file-ch1">
+        <apx-button
+            [label]="buttonStyle['label']!=undefined?buttonStyle['label']:'Upload File'"
+            [button_type]="buttonStyle['button_type']!=undefined?buttonStyle['button_type']:'secondary'"
+            [size]="buttonStyle['size']!=undefined?buttonStyle['size']:'XS'"
+            [round_label]="buttonStyle['round_label']!=undefined?buttonStyle['round_label']:''"
+            [width]="buttonStyle['width']!=undefined?buttonStyle['width']:'limited'"
+            [type]="buttonStyle['type']!=undefined?buttonStyle['type']:'text'"
+            [icon_type]="buttonStyle['icon_type']!=undefined?buttonStyle['icon_type']:'fa fa-upload'"
+            [icon_position]="buttonStyle['icon_position']!=undefined?buttonStyle['icon_position']:'left'"
+            [disabled]="buttonStyle['disabled']!=undefined?buttonStyle['disabled']:false"
+            (clicked)="file1up.click()"
+        ></apx-button>
+    </div>
+    <div *ngIf="!error && success_msg!=''" class="font-85 margin-ts darkblue-cl apx-file-ch2">{{success_msg}} &nbsp;&nbsp;<i (click)="clearFile()" class="fa fa-times cursor"></i></div>
+    <div *ngIf="error" class="font-85 margin-ts color-red apx-file-ch3"><i apxTooltip [tooltip]="tooltipmsg" [position]="'bottom'"  class="fa fa-info-circle cursor"></i> &nbsp;{{error_msg}}</div>
+    <input #file1up type="file" (change)="uploaded_file($event)" style="display: none;" [multiple]="true">
+</div>

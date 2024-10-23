@@ -1,0 +1,14 @@
+<div *ngIf="position=='horizontal'" [ngClass]="{'center':center}" class="padding-8 font-20" [ngStyle]="{'color':color}">
+    <i *ngIf="media.indexOf('facebook')>-1" (click)="open_page(media_link['facebook'])" class="fa fa-facebook-square">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+    <i *ngIf="media.indexOf('twitter')>-1" (click)="open_page(media_link['twitter'])" class="fa fa-twitter-square">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+    <i *ngIf="media.indexOf('instagram')>-1" (click)="open_page(media_link['instagram'])" class="fa fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+    <i *ngIf="media.indexOf('snapchat')>-1" (click)="open_page(media_link['snapchat'])" class="fa fa-snapchat-square">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+    <i *ngIf="media.indexOf('email')>-1" (click)="open_page(media_link['email'])" class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+</div>
+<div *ngIf="position=='vertical'" [ngClass]="{'left':f_position[1],'right':f_position[2]}" style="width: 42px;position: fixed;z-index: 99999;" class="padding-8 font-20 vertical-s" [ngStyle]="{'color':color,'background':background,'top':f_position[0]}">
+    <div><i *ngIf="media.indexOf('facebook')>-1" (click)="open_page(media_link['facebook'])" class="fa fa-facebook-square">&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+    <div><i *ngIf="media.indexOf('twitter')>-1" (click)="open_page(media_link['twitter'])" class="fa fa-twitter-square">&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+    <div><i *ngIf="media.indexOf('instagram')>-1" (click)="open_page(media_link['instagram'])" class="fa fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+    <div><i *ngIf="media.indexOf('snapchat')>-1" (click)="open_page(media_link['snapchat'])" class="fa fa-snapchat-square">&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+    <div><i *ngIf="media.indexOf('email')>-1" (click)="open_page(media_link['email'])" class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+</div>

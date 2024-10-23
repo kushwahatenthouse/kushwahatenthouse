@@ -1,0 +1,64 @@
+<div style="margin: 0px;padding:0px;" class="opensans">
+    <div class="font-20 opensans">{{title}}</div>
+    <div class="margin-top">
+        <div style="display:flex;margin-top: 8px;" *ngFor="let d of data">
+
+            <ng-container *ngIf="(d.type=='number') ; else icon_link">
+                <div apxTooltip [tooltip]="d.tooltip ? d.tooltip : ''" [position]="'top'" [ngStyle]="{'height':size_style[size]['height'],'font-size':size_style[size]['url_font']}" [ngClass]="{'active_link_bg':d.active_link!=false || d.active_link,'unactive_link_bg':d.active_link==false}" class="num_style">{{d.num | formatNumber}}</div>
+            </ng-container>
+
+            <ng-template #icon_link>
+                <div [ngStyle]="{'height':size_style[size]['height'],'font-size':size_style[size]['url_font']}" style="flex:26px 0;min-width: 26px;position: relative">
+                    <ng-container *ngIf="d.icon_type=='image' else icon_image">
+                        <img [ngStyle]="{'height':size_style[size]['height'],'width':size_style[size]['height']}" src="https://icon-library.com/images/small-icon-images/small-icon-images-5.jpg">
+                    </ng-container>
+                    <ng-template #icon_image>
+                        <i style="margin:6px;position: absolute;" [ngClass]="{'top_s':size=='S','fa-link':!d.icon_name}" class="fa {{d.icon_name}}" aria-hidden="true"></i>
+                    </ng-template>
+                    
+                </div>
+            </ng-template>
+
+            <div [ngStyle]="{'font-size':size_style[size]['str_font']}" [ngClass]='{"margin-left":size=="M" || d.type=="number","text-line1":d.line_r=="one","text-line2":d.line_r=="two"}'><a class="str_style" href="{{d.link_url}}" target="{{d.target}}">{{d.text}}</a></div>
+        </div>
+
+        <!-- <div style="display:flex;margin-top: 8px;">
+
+            <ng-container *ngIf="type=='number' else icon_link">
+                <div style="font-size: 12px;height: 22px;" class="num_style {{link_status_bs}}">{{display_num}}</div>
+            </ng-container>
+
+            <ng-template #icon_link>
+                <div style="font-size: 12px;flex:26px 0;min-width: 26px;text-align: center;height: 22px;">
+                    <ng-container *ngIf="icon_type=='image' else icon_image">
+                        <img width="22px" height="22px" src="https://icon-library.com/images/small-icon-images/small-icon-images-5.jpg">
+                    </ng-container>
+                    <ng-template #icon_image>
+                        <i style="margin:6px" class="fa fa-link" aria-hidden="true"></i>
+                    </ng-template>
+                    
+                </div>
+            </ng-template>
+
+            <div class="text-line1 str_style" style="font-size: 14px;"><a href="{{link_url}}" target="{{target}}">{{link_text}}</a></div>
+        </div> -->
+
+
+        <!-- <div style="display:flex;margin-top: 8px;">
+            <div style="font-size: 14px;flex:46px 0;min-width: 46px;background: #5EBA7D;text-align: center;color: #fff;height: 24px;padding:4px 0">5</div>
+            <div class="text-line2 str_style">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only</div>
+        </div>
+        <div style="display:flex;margin-top: 8px;">
+            <div style="font-size: 14px;flex:26px 0;min-width: 26px;text-align: center;height: 24px;">
+                <ng-container *ngIf="icon_type=='image' else icon_image">
+                    <img width="24px" height="24px" src="https://icon-library.com/images/small-icon-images/small-icon-images-5.jpg">
+                </ng-container>
+                <ng-template #icon_image>
+                    <i style="margin:6px" class="fa fa-link" aria-hidden="true"></i>
+                </ng-template>
+                
+            </div>
+            <div class="text-line2" style="flex-grow: 1;font-size: 16px;margin-left:6px;padding: 3px 0;color:#0074cc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        </div> -->
+    </div>
+</div>

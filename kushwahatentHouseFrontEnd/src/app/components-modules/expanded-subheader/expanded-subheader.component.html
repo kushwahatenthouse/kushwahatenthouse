@@ -1,0 +1,13 @@
+<div class="apx-h1-chl" style="display: inline-block;">
+    <a *ngFor="let dat of data" class="apx-t-menu" [routerLink]="[dat.url]" (click)="selectedVal(dat)" [ngClass]="{'apx-h1-selected':(dat.url==currentPage || dat.selected) ? true : (currentPage==''?dat.selected:false)}"><a>{{dat.text}}</a>&nbsp;&nbsp;<i *ngIf="dat.submenu" class="fa fa-chevron-down"></i>
+        <section *ngIf="dat.submenu" class="h-subsection">
+            <div style="max-width: 1290px;margin:auto;" class="row">
+                <div *ngFor="let da of dat.child" class="col-4 apx-t-menu-opt padding-16">
+                    <div class="apx-title16" [innerHTML]="da.text"></div>
+                    <a *ngFor="let d of da.child" href="{{d.url}}">{{d.text}}</a>
+                </div>
+            </div>
+            <div style="height: 20px;"></div>
+        </section>
+    </a>
+</div>

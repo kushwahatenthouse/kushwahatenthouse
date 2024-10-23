@@ -1,0 +1,10 @@
+<ul class="tags">
+    <ng-container *ngFor="let d of data">
+        <li *ngIf="d.text" (click)="clickValue(d)">
+            <a *ngIf="d.url ; else wurl" [href]="d.url" class="tag" title="{{d.text}}">{{d.text}}<i class="fa fa-link"></i></a>
+            <ng-template #wurl>
+                <a class="tag" title="{{d.text}}">{{d.text}}</a>
+            </ng-template>
+        </li>
+    </ng-container>
+</ul>

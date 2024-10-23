@@ -1,0 +1,16 @@
+.center div{
+    width: 56px;
+    height: 56px;
+    margin: 10px 15px 30px 10px;
+} 
+.share-icon{
+    border-left:1px solid #21313c;
+    border-top:1px solid #21313c;
+    border-bottom:1px solid #21313c;
+}
+.share-iconl{
+    border:1px solid #21313c;
+}
+.squeezeme >img{
+    transform: scale(0.9);
+}

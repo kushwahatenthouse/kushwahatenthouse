@@ -1,0 +1,36 @@
+<div class="apx-accordion">
+    <!-- <div class="apx-acc-container" onclick="this.children[1].classList.toggle('expand-sec')">
+        <div class="apx-acc-h flex-container border" (click)="expandSection($event);">
+            <div class="flex-grow">header come here</div>
+            <div style="flex:0 40px" class="border">+</div>
+        </div>
+        <section class="apx-acc-sec">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </section>
+    </div> -->
+    
+    <div class="apx-acc-container" *ngFor="let da of data">
+        <div class="apx-acc-h flex-container padding-8"  (click)="expandSection(da)" [ngClass]="{'highbg':da.expanded}">
+            <div class="flex-grow" [innerHTML]="da.title"></div>
+            <div style="flex:0 16px"><i *ngIf="!da.expanded" class="fa fa-plus" style="font-size: 12px;" aria-hidden="true"></i><i *ngIf="da.expanded" class="fa fa-minus" style="font-size: 12px;" aria-hidden="true"></i></div>
+        </div>
+        <section class="apx-acc-sec" [ngClass]="{'expand-sec':da.expanded}">
+            <ng-container *ngIf="da.template! ; else sectionhere">
+                <ng-container [ngTemplateOutlet]="da.template" [ngTemplateOutletContext]="{data: da}"></ng-container>
+            </ng-container>
+            <ng-template #sectionhere>
+                <div class=" padding-8" [innerHTML]="da.content"></div>
+            </ng-template>
+        </section>
+    </div>
+
+    <!-- <div class="apx-acc-container" onclick="this.children[1].classList.toggle('expand-sec')">
+        <div class="apx-acc-h flex-container border" (click)="expandSection($event);">
+            <div class="flex-grow">header come here</div>
+            <div style="flex:0 40px" class="border">+</div>
+        </div>
+        <section class="apx-acc-sec">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </section>
+    </div> -->
+</div>

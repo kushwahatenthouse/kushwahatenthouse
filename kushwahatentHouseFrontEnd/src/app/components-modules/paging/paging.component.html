@@ -1,0 +1,26 @@
+<div style="display:block;overflow: auto;" class="not_select">
+    <div style="float: right;margin-bottom: 12px;" class="font-13">
+        <div *ngFor="let data of pageLimit" (click)="changePageLimit(data.page)" [ngClass]="{'primary-selected':data.selected && type=='primary','emphasized-selected':data.selected && type=='emphasized','new-emphasized-selected':data.selected && type=='new-emphasized'}" class="inline-block border center paging-limit">{{data.page}}</div>
+        <div class="inline-block center paging-limit">per page</div>
+    </div>
+    <div class="font-13 paging-count">
+
+        <div *ngFor="let data of pagingSet" (click)="changePageTo(data.page)" [ngClass]="{'primary-selected':data.selected && type=='primary','emphasized-selected':data.selected && type=='emphasized','new-emphasized-selected':data.selected && type=='new-emphasized'}" class="inline-block border center pagingNo">
+            <ng-container *ngIf="data.gap || data.selected">
+                {{data.next?'Next':(data.previous?'Prev':data.page)}}
+            </ng-container>
+            <ng-container *ngIf="!data.gap &&  !data.selected">
+                {{data.next?'Next':(data.previous?'Prev':data.page)}}
+            </ng-container>
+        </div>
+
+        <!-- <div class="inline-block border center  {{type}}-selected" style="padding:5px;min-width: 28px;margin-right:4px;border-radius: 4px;">1</div>
+        <a class="inline-block border center" style="padding:5px;min-width: 28px;border-radius: 4px;margin-right:4px;">2</a>
+        <a class="inline-block border center" style="padding:5px;min-width: 28px;border-radius: 4px;margin-right:4px;">3</a>
+        <a class="inline-block border center" style="padding:5px;min-width: 28px;border-radius: 4px;margin-right:4px;">4</a>
+        <a class="inline-block border center" style="padding:5px;min-width: 28px;border-radius: 4px;margin-right:4px;">5</a>
+        <div class="inline-block border center" style="padding:5px;min-width: 28px;margin-right:4px;border-radius: 4px;">...</div>
+        <a class="inline-block border center" style="padding:5px 8px 5px 8px;min-width: 28px;border-radius: 4px;margin-right:4px;">14352</a>
+        <a class="inline-block border center" style="padding:5px 8px 5px 8px;min-width: 28px;border-radius: 4px;margin-right:4px;">Next</a> -->
+    </div>
+</div>

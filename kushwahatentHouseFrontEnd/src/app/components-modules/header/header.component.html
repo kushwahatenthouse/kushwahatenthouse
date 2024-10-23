@@ -1,0 +1,97 @@
+<div class="padding-8 hide-medium hide-small background-white border-bottom opensans" [ngClass]="{'sticky_header':true}">
+    <div style="margin-left: 8px;" class="relative">
+        <div class="inline-block">
+            <img src="../../assets/logo.png" width="40px" height="40px">
+        </div>
+        <div style="margin-left: 12px;top:1px" class="inline-block absolute">
+            <div class="font-20 bold">OrMarts</div>
+            <div class="font-14">ready to use application</div>
+        </div>
+        <div class="inline-block float-right" style="margin-top:5px">
+            <div class="inline-block font-16 bold margin-r8">
+                <!-- <apx-menu
+                    [padding]="'8px 12px'"
+                    [background]="'white'"
+                    [color]="'#111111'"
+                ></apx-menu> -->
+            </div>
+            <div class="inline-block font-16 bold padding-8 border margin-r8">Home</div>
+            <div class="inline-block font-16 bold padding-8 border margin-r8">Home</div>
+            <div class="inline-block font-16 bold padding-8 border margin-r8">Home</div>
+            <div class="inline-block font-16 bold padding-8 border margin-r8">Home</div>
+            <div class="inline-block font-16 bold padding-8 border margin-r8">Home</div>
+            <div class="inline-block margin-r8">
+                <apx-button
+                    [label]="'Subscribe'"
+                    [button_type]="'secondary'"
+                    [size]="'S'"
+                    (clicked)="nav_toggle()"
+                ></apx-button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide-large relative background-white card-bottom" [ngClass]="{'sticky_header':true}" style="height: 46px;z-index: 9;">
+    <div (click)="nav_toggle()" class="inline-block absolute" style="padding:10px 12px;width: 48px;height: 46px;margin-right:8px;background: rgb(235, 233, 233);">
+        <img src="../../assets/bars.svg" width="22px">
+    </div>
+    <div class="inline-block" style="margin-left: 53px;margin-top: 3px;">
+        <img src="../../assets/logo.png" width="40px">
+    </div>
+    <div class="inline-block absolute" style="top:4px">
+        <div class="font-18">Ormarts</div>
+        <div class="font-14">ready to use application</div>
+    </div>
+    <div (click)="check_me()" style="float: right;margin-right: 64px;margin-top: 4px;" class="hide-small hide-large inline-block font-16 bold padding-8 border margin-r8 margin-l10">Subscribe</div>
+    <div (click)="search_bar()" class="inline-block absolute cursor" style="width: 46px;height: 46px;margin-right:8px;right:-8px;padding:4px;">
+        <img src="../../assets/search.png" width="36px">
+    </div>
+</div>
+
+<div [ngStyle]="{'width':nav_width}" style="z-index: 100000;overflow-y: hidden;" class="sidebar">
+    <div style="padding:4px 8px;position: relative;border-bottom:1px solid #727272;margin-bottom: 10px;height: 70px;">
+        <div style="display: inline-block;max-width: 80px;">
+            <img src="../../assets/logo.png" width="60px">
+        </div>
+        <div style="display: inline-block;position: absolute;left: 80px;top:13px">
+            <div class="font-18 single-line">Company Name</div>
+            <div class="font-14 single-line">slogan of company, for</div>
+        </div>
+    </div>
+    <div style="max-height: calc( 100% - 100px);overflow: auto;">
+        <app-tree-list></app-tree-list>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; About</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Services</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Clients</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Contact</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; About</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Services</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Clients</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Contact</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; About</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Services</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Clients</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Contact</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; About</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Services</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Clients</a>
+        <a href="#"><i class="fa fa-home font-18"></i>&nbsp; Contact</a>
+        <div style="padding:8px;margin-top:16px">
+            <apx-button
+                [width]="'full'"
+                [label]="'Subscribe'"
+            ></apx-button>
+        </div>
+        <div style="padding:8px;margin-top:-4px">
+            <apx-button
+                [width]="'full'"
+                [label]="'Close'"
+                [button_type]="'secondary'"
+                (clicked)="nav_toggle()"
+            ></apx-button>
+        </div>
+    </div>
+    
+        
+</div>
+<div (click)="nav_toggle()" *ngIf="nav_toggle_came" style="z-index: 99999;position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: #ccc;opacity: .5;"></div>

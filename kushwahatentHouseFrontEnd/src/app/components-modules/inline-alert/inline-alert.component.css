@@ -1,0 +1,30 @@
+.info-alert-br{
+    border-left:3px solid #064a9c;
+}
+.info-alert-bg{
+    background: #d6e1f0;
+    font-weight: 600;
+}
+.info-alert-c{
+    color:#064a9c;
+}
+.alert-br{
+    border-left:3px solid rgb(238, 26, 26);
+}
+.alert-bg{
+    background: #ffe3e2;
+    font-weight: 600;
+}
+.alert-c{
+    color:rgb(238, 26, 26);
+}
+.message-alert-br{
+    border-left:3px solid #069c33;
+}
+.message-alert-bg{
+    background: #e3faea;
+    font-weight: 600;
+}
+.message-alert-c{
+    color:#069c33;
+}

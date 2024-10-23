@@ -1,0 +1,155 @@
+<angular-editor #angulareditor [(ngModel)]="html" [placeholder]="'Enter text here...'" [config]="editorConfig">
+
+  <ng-template #customButtons>
+    <ae-toolbar-set>
+      <ae-button iconClass="fa fa-table" title="Add Table"
+          (buttonClick)="addTable()">
+      </ae-button>
+      <ae-button iconClass="fa fa-image" title="Add Table"
+          (buttonClick)="addImage()">
+      </ae-button>
+    </ae-toolbar-set>
+  </ng-template>
+
+</angular-editor>
+
+<!-- add image -->
+<apx-alert
+  [closable]="false"
+  [buttons]="buttonsi"
+  [showAlert]="showImagepopup"
+  (clicked)="addImageClick($event)"
+>
+  <div title>Add Image <span class="font-90 margin-left color-red"></span></div>
+  
+  <div class="padding-12">
+    Add url path of image
+    <div class="margin-top">
+        <apx-input
+          [size]="'S'"
+          [background]="'#ffffff'"
+          [label]="'https://url.com'"
+        >
+        </apx-input>
+    </div>
+
+    <div class="margin-top text-bw-line">Or Upload Image</div>
+    <br>
+    <div class="center">
+      <apx-file-upload
+        [success_msg]="'imgscsmsg'"
+        (UploadedFile)="uploadImageRaw($event)"
+      ></apx-file-upload>
+    </div>
+    <div class="font-85 color2 margin-top margin-bs">if you upload file, it will add image in raw format. Be careful about image size.</div>
+    <apx-accordion
+      [data]="[
+                {
+                  title:'Addition Setting',
+                  content:'Additonal details here',
+                  expanded:false,
+                  template:imageDetails
+                }
+              ]"
+    ></apx-accordion>
+    
+  </div>
+</apx-alert>
+<ng-template #imageDetails>
+  <div class="padding-8">
+    <div class="row margin-ts">
+      <div class="half middleinrwo" >Width :</div>
+      <div class="half middleinrwo">
+        <apx-input 
+          [size]="'S'"
+          [background]="'#ffffff'"
+          [(value)]="imagewidth"
+        ></apx-input>
+      </div>
+    </div>
+    <div class="font-85 margin-ts">add width of image, ex. 500px, 100% in proper format</div>
+  </div>
+</ng-template>
+
+
+
+
+<!-- add table-->
+<apx-alert
+  [closable]="false"
+  [buttons]="buttons"
+  [showAlert]="showtablePopup"
+  (clicked)="addTableClick($event)"
+>
+  <div title>Add table <span class="font-90 margin-left color-red">{{table_err_msg}}</span></div>
+  <div class="padding-12">
+    <apx-checkbox
+      [label]="'Add Table Header'"
+      [state]="isHeader ? 'Selected':'Unselected'"
+      (checkbox_click)="tbcheckbox($event,'header')"
+    ></apx-checkbox>
+    <br>
+    <div class="row margin-top">
+      Add Number of Rows and Column of table
+        <div class="half">
+          <div class="row margin-top">
+            <div class="col-3 middleinrwo">Row </div>
+            <div class="col-3">
+              <apx-input
+                [size]="'S'"
+                [background]="'#ffffff'"
+                [(value)]="tableRow"
+              >
+              </apx-input>
+            </div>
+          </div>
+        </div>
+        <div class="half">
+          <div class="row margin-top">
+            <div class="col-3 middleinrwo">Column </div>
+            <div class="col-3">
+              <apx-input
+                [size]="'S'"
+                [background]="'#ffffff'"
+                [(value)]="tableColumn"
+              >
+              </apx-input>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <br>
+    <apx-checkbox
+      [label]="'Striped Lining'"
+      [state]="isStriped ? 'Selected':'Unselected'"
+      (checkbox_click)="tbcheckbox($event,'striped')"
+    ></apx-checkbox>
+    
+  </div>
+</apx-alert>
+
+<br>
+<!-- executeCommandFn('insertHtml', 'angularEditorLogo') <div class="NgxEditor__Wrapper" #editordiv>
+    <ngx-editor-menu [editor]="editor" [spellcheck]="true" [toolbar]="toolbar" [customMenuRef]="customMenu"> </ngx-editor-menu>
+    <ngx-editor #editorvc [editor]="editor" [outputFormat]="'html'" (focusOut)="focused()" (valueChanges)="onChange($event)"> </ngx-editor>
+  </div>
+  <ng-template #customMenu>
+    <select #select21 (change)="textFormat(select21.value)">
+        <option>hello</option>
+        <option>div</option>
+        <option>hello2</option>
+    </select>
+  </ng-template> -->
+<!-- 
+  <div class="row margin-top" *ngIf="false">
+    <div class="col-2 middleinrwo">Min Width(px) </div>
+    <div class="col-3">
+      <apx-input
+        [size]="'S'"
+        [background]="'#ffffff'"
+        [(value)]="tablewidth"
+      >
+      </apx-input>
+    </div>
+  </div> -->

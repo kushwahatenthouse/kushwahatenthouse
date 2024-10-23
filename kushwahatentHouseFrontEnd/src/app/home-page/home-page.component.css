@@ -1,0 +1,21 @@
+.infiniteSpan{
+    margin:0 0.5em;
+}
+@keyframes infiniteScroll {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(-50%,0);
+    }
+}
+.scrollMe{
+    position: absolute;
+    top:0px;left:0px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: infiniteScroll 20s linear infinite !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+}

@@ -1,0 +1,8 @@
+<div class="" [ngStyle]="{'max-width':maxSize}" style="margin:auto">
+    <div class="row apx-multicard">
+        <div *ngFor="let da of data" class="multicard padding-12 center">
+            <img [src]="da.image" style="max-width: 100px;"><br>
+            {{da.name}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row margin-12">
+    <div class="padding-12 col-2" style="max-width: 600px;">
+        <div class="font-120 bold padding-bottom">Normal Accordion</div>
+        <apx-accordion
+        ></apx-accordion>
+        <ng-template #variable let-dat="data">
+            {{dat.content}}dfgggg
+        </ng-template>
+    </div>
+
+    <div class="padding-12 col-2" style="max-width: 600px;">
+        <div class="font-120 bold padding-bottom">Template Modified Accordion</div>
+        <apx-accordion
+            [data]="[
+                        {
+                            title:'Addition Setting',
+                            content:'Modified With Template',
+                            expanded:true,
+                            template:template
+                        },
+                        {
+                            title:'String Heading 1',
+                            content:'Normal Accordion without template Modified',
+                            expanded:false
+                        }
+                    ]"
+        ></apx-accordion>
+        <ng-template #template let-dat="data">
+            <div class="padding-12 color-red">{{dat.content}}</div>
+        </ng-template>
+    </div>
+
+    <div class="padding-12 col-2 margin-top" style="max-width: 600px;">
+        <div class="font-120 bold padding-bottom">Accordion with only one section</div>
+        <apx-accordion
+            [multiSectional]="false"
+        ></apx-accordion>
+    </div>
+</div>
+    

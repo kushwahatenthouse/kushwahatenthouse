@@ -1,0 +1,58 @@
+::-webkit-scrollbar {height: 10px;} /* Track */
+/* Handle */ 
+::-webkit-scrollbar-thumb { 
+    -webkit-border-radius: 5px; 
+    border-radius: 10px; 
+    background:#959595; 
+    box-shadow: inset 0 0 3px #ccc; 
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 0 3px #ccc; 
+    border: 2px solid white; 
+    background-clip: padding-box; 
+} 
+.apx-tabs{
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+}
+.apx-tabs-h{
+    z-index: 2;
+    white-space: nowrap;
+    overflow-y: hidden;
+    max-width: 100%;
+}
+.apx-tabs-h > div{
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.apx-tabs-content{
+    border-top:2px solid #706b6b;
+    border-radius: 3px;
+    background: white;
+}
+.apx-tabs-content > div{
+    padding: 8px 12px;
+    /* opacity: 0; */
+    display: none;
+    transition:opacity 0.3s ease-in-out;
+}
+.showTabs{
+    /* opacity: 1 !important; */
+    display: block !important;
+}
+.selectedTab{
+    border-top:2px solid #706b6b;
+    border-left:2px solid #706b6b;
+    border-right:2px solid #706b6b;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom:2px solid white;
+    z-index: 5 !important;
+    background: white;
+}
+.wrap-content-border{
+    border-bottom:2px solid #706b6b;
+    border-left:2px solid #706b6b;
+    border-right:2px solid #706b6b;
+}
