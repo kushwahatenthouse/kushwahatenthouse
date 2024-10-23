@@ -1,0 +1,17 @@
+.apx-toast{
+    position: fixed;max-width: 80%;z-index: 99999;margin: auto;left:50%;transform: translateX(-50%);width: 300px;
+}
+.toast-animate{
+    animation: animated 1s ease-in forwards;
+    opacity: 0;
+}
+@keyframes animated {
+    0%{
+        top:-50%;
+        opacity: 1;
+    }
+    100%{
+        top:12px;
+        opacity: 1;
+    }
+}

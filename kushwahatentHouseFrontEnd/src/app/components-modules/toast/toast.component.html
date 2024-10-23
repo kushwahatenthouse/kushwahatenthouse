@@ -1,0 +1,8 @@
+<div *ngIf="showToast" class="toast-animate apx-toast">
+    <div style="display: block;margin-top: 6px;">
+        <div class="bg-dark color-white padding-12 font-14 flex-container">
+            <div class="flex-grow">{{toastdata}} </div> 
+            <div style="flex:16px 0" class="cursor"><img (click)="closeIt()" src="../../assets/icon/close-white.png" alt="close it" width="14px">
+        </div>
+    </div>
+</div>

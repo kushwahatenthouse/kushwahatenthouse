@@ -1,0 +1,16 @@
+.story div{
+    margin-right:12px;
+    margin-top:4px;
+}
+.story div div{
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+            line-clamp: 1; 
+    -webkit-box-orient: vertical;
+}
+.scroll-x{
+    overflow-x: auto;
+}

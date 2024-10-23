@@ -1,0 +1,73 @@
+<div class="scroll-card" *ngIf="type=='image'">
+    <carousel>
+        <div class="carousel-cell">
+            <div class="margin-8 image image-100">
+                <img src="../../assets/sqaure.png"> 
+            </div>
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+    </carousel>
+</div>    
+
+<div class="scroll-card" *ngIf="type=='product1'">
+    <div class="padding-8 flex-container">
+        <div class="flex-grow margin-ts">Title game</div>
+        <apx-button
+            style="flex:0 84px"
+            [label]="'View All'"
+            [size]="'XS'"
+        >
+        </apx-button>
+    </div>
+    <carousel
+        [height]="250"
+    >
+        <div class="carousel-cell">
+            <span class="absolute cursor-none" style="z-index: 2;right:8px;top:8px;padding:8px;font-size: 17px;"><i (click)="add_wishlist($event,'id-value')" class="fa fa-heart-o color-white cursor" aria-hidden="true"></i></span>
+            <span class="absolute cursor-none" style="z-index: 2;right:8px;top:44px;padding:8px;font-size: 17px;"><i class="fa fa-share color-white cursor" aria-hidden="true"></i></span>
+            <div class="margin-8 image image-100">
+                <img src="../../assets/sqaure.png"> 
+            </div>
+            <div class="margin-8 text-line1 font-90 font-weight500">
+                Product name comes here all details
+            </div>
+            <div class="font-90 margin-l8 text-line1">
+                <span class="color-green"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;56065</span>&nbsp;&nbsp;
+                <span class="date-color line-through"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;55560</span>&nbsp;&nbsp;&nbsp;
+                <span class="color-green">Off&nbsp;56%</span>
+            </div>
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+        <div class="carousel-cell">
+        </div>
+    </carousel>
+</div>    
+    

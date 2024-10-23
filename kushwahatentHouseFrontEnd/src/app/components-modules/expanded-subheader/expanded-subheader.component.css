@@ -1,0 +1,90 @@
+a{
+    color: #111111;
+    text-decoration: none;
+}
+.apx-header1{
+    margin: 0px;
+    padding: 0px;
+}
+.apx-h1-chl{
+    max-width: 1290px;
+    display: block;
+    height: 72px;
+    margin: auto;
+}
+.apx-t-menu{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 15px;
+    margin-left:6px;
+}
+.apx-t-menu-opt{
+    line-height: normal;
+    font-size: 15px;
+    font-weight: 500;
+}
+.apx-t-menu-opt > a{
+    font-size: 15px;display: block;color: white;margin-top: 4px;
+}
+.apx-t-menu-opt > a:hover{
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.apx-title16{
+    padding-bottom: 8px;margin-bottom: 10px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.apx-h1-chl > div > i{
+    font-size: 11px;
+    color:#111111;
+    padding-top:-5px;
+}
+.apx-h1-chl > div:hover{
+    cursor: pointer;
+    box-shadow: inset 0 -3px 0 #061e47;
+}
+.apx-h1-selected{
+    /* box-shadow: inset 0 -3px 0 #061e47; */
+    color:#061e47 !important;
+    font-weight: 600;
+    box-shadow: inset 0 -3px 0 #061e47;
+}
+
+.apx-h1-chl > div:hover >i{
+    animation: rotate90 .1s linear;
+    transform: rotate(-180deg);
+    top:30% !important;
+}
+@keyframes rotate90 {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-180deg);
+    }
+}
+.h-subsection{
+    /* display: none; */
+    transition: .4s ease;
+    background: #145da0;
+    color:#ffffff;
+    text-align:left;
+    position: absolute;
+    /* padding:12px; */
+    left:0px;
+    overflow-y: hidden;
+    top:70px;
+    z-index: 100;
+    right:0px;
+    max-height: 0px;
+}
+.apx-h1-chl > div:hover .h-subsection{
+    /* display: block; */
+    max-height: 100vh;
+}

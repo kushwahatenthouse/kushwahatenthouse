@@ -1,0 +1,17 @@
+<div class="search-bar relative border">
+    <div class="absolute padding-8 left" style="border-right:1px solid #111;"><img src="../../assets/left-arrow.svg" width="17px"></div>
+    <div class="width_dir absolute">
+        <input type="text" class="text-search" placeholder="search here" #type [value]="search_text" (keyup)="search_start(type.value)">
+    </div>
+    <div class="absolute padding-8 right" style="border-left:1px solid #111"><img src="../../assets/search.svg" width="19px"></div>
+    <div *ngIf="searching_start && search_hint.length>0" class="absolute search-result" style="top:40px;width: 100%;background: white;">
+        <div *ngFor="let data of search_hint" (click)="open_link(data.link)"><img *ngIf="data.icon && data.icon!=''" width="16px" height="16px" src="{{data.icon}}">&nbsp;&nbsp;{{data.text}}</div>
+    </div>
+    <div *ngIf="searching_start && search_hint.length==0" class="absolute search-result" style="top:40px;width: 100%;background: white;height:120px">
+        <br><br>
+        <div>
+            <img src="../../assets/loading.gif" width="32px"> <div class="inline-block absolute" style="margin-top: 3px;">Searching...</div>
+        </div>
+        <br><br>
+    </div>
+</div>

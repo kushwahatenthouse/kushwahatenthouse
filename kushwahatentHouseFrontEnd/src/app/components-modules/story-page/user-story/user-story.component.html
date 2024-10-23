@@ -1,0 +1,63 @@
+<div class="center" *ngIf="s_data.length==0">
+    <img src="../../../assets/loader.gif" width="100" style="margin-top: 30%;"><br>
+    Loading...
+</div>
+<div class="show-story" *ngIf="s_data.length > 0">
+    <div style="padding:0;width: 100%;margin-top:-8px;">
+        <div style="width: 1%;display: inline-block;"></div>
+        <div *ngFor="let d of s_data" class="relative" [ngStyle]="{'width':sbw}" style="margin-right:1%;height: 2px;border-radius: 2px;background: #ccc;display: inline-block;">
+            <div class="absolute progress-div" style="height: 2px;left: 0px;background: black;"></div>
+        </div>
+        
+        
+        <!-- <div class="relative" style="width: 24%;height: 2px;border-radius: 2px;background: #ccc;display: inline-block;">
+            <div class="absolute progress-div" style="height: 2px;left: 0px;background: black;"></div>
+        </div>
+        <div style="width: 1%;display: inline-block;"></div>
+        <div class="relative" style="width: 24%;height: 2px;border-radius: 2px;background: #ccc;display: inline-block;">
+            <div class="absolute progress-div" style="height: 2px;left: 0px;background: black;"></div>
+        </div>
+        <div style="width: 1%;display: inline-block;"></div>
+        <div class="relative" style="width: 24%;height: 2px;border-radius: 2px;background: #ccc;display: inline-block;">
+            <div class="absolute progress-div" style="height: 2px;left: 0px;background: black;"></div>
+        </div> -->
+        
+    </div>
+</div>
+<div class="story-data" *ngIf="s_data.length > 0" style="background: #111;">
+    <carousel #myCarousel
+        (click)="handleCarouselEvents($event)"
+        (events)="handleCarouselEvents($event)"
+        (mousedown)="key_press($event)"
+        (mouseup)="key_up($event)"
+        (touchstart)="key_press($event)"
+        (touchend)="key_up($event)"
+        [objectFit]="'cover'"
+        [arrows]="false"
+        [arrowsOutside]="false"
+        [cellWidth]="'100%'"
+        [autoplay]="false"
+        [freeScroll]="false"
+        [cellsToScroll]="1"
+        [lightDOM]="true"
+        [pauseOnHover]="true"
+        [transitionDuration]="300"
+        [transitionTimingFunction]="'ease-in'"
+    >
+    <div class="carousel-cell centerFlex ssdmp" *ngFor="let da of s_data">
+        <div style="max-height: 100%;text-align: center;">
+            <img *ngIf="da['data-type']=='image'" style="max-height: 434px;width: 100%;" [src]="da['data-path']"> 
+            <video *ngIf="da['data-type']=='video'" [src]="da['data-path']" controls>
+                <source [src]="da['data-path']" type="video/mp4">
+            </video>
+            <div (click)="myCarousel.next();" style="position: absolute;width:40%;right: 0px;top:0px;height: 100%;">
+            
+            </div>
+            <div (click)="myCarousel.prev();" style="position: absolute;width:40%;left: 0px;top:0px;height: 100%;">
+                
+            </div>
+        </div>
+    </div>
+    </carousel>
+    
+</div>

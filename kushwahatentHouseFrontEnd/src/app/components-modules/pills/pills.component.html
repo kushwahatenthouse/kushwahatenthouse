@@ -1,0 +1,37 @@
+
+<!--disable button-->
+<button *ngIf="disable"
+    [ngClass]="{'btn_disable':disable}"
+    [ngStyle]="{'padding':button_style[size]['padding'],'width':button_style[width_type]['width'],'font':button_style[size]['font']}"
+    (mouseover)="focus()"
+    (mouseup)="key_up1()"
+    (mousedown)="key_press()"
+    (keypress)="key_press()"
+    (keyup)="key_up($event)"
+    tabindex="1"
+>
+    <span
+        style="text-align: center;letter-spacing: 0;color: #ccc;" [innerHTML]="label"
+    ></span>
+</button>
+
+<button #b_b *ngIf="!disable"
+    [ngClass]="{'btn_bb':idle_state,'btn_hover_bb':hover_state,'btn_clicked_bb':clicked_state,'box_shadow1':box_shadow,'apx-pills-selected':selected}"
+    [ngStyle]="{'box-shadow':box_shadowd,'background':background,'color':color,'padding':button_style[size]['padding'],'width':button_style[width_type]['width'],'font':button_style[size]['font']}"
+    (mouseover)="focus()"
+    (mouseout)="blur(b_b)"
+    (mouseup)="key_up1()"
+    (mousedown)="key_press()"
+    (keypress)="key_press()"
+    (keyup)="key_up($event)"
+    (click)="selectme(b_b)"
+    tabindex="1"
+    class="relative apx-pills"
+>
+    <i *ngIf="icon_position=='left'" class="{{icon_name}} absolute" [ngStyle]="{'margin-top':button_style[size]['top'],'left':button_style[size]['left'],'font-size':(size=='XS' || size=='S')?'15px':'17px'}"></i>
+    <span
+        style="text-align: center;letter-spacing: 0;font-weight: 500;"
+        [ngStyle]="{'margin-left':icon_position=='left'?'14px':(icon_position=='right'?'-4px':'initial'),'margin-right':icon_position=='right'?'15px':'initial'}"
+        [innerHTML]="label"></span>
+    <i *ngIf="icon_position=='right'" class="{{icon_name}} absolute" [ngStyle]="{'margin-top':button_style[size]['top'],'right':button_style[size]['right'],'font-size':(size=='XS' || size=='S')?'15px':'17px'}"></i>
+</button>

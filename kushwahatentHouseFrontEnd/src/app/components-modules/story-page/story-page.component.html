@@ -1,0 +1,36 @@
+<div class="padding-8 border story" [ngClass]="{'small_scroll':ismobile,'scroll-x':!ismobile}" style="overflow-x: auto;white-space: nowrap;">
+    <div *ngFor="let dat of story_data" class="inline-block center">
+        <img src="{{dat['story-data'][0]['data-path']}}" (click)="story_clicked(dat['story-id'],dat['user-hash'])" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">{{dat['user-name']}}</div>
+    </div>
+    <!-- 
+    <div class="inline-block center"> 
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div>
+    <div class="inline-block center">
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div>
+    <div class="inline-block center">
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div>
+    <div class="inline-block center">
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div>
+    <div class="inline-block center">
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div>
+    <div class="inline-block center">
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div>
+    <div class="inline-block center">
+        <img src="../../assets/nature.jpg" style="width: 60px;height: 60px;border-radius: 50%;">
+        <div class="font-85">Rajesh Kumar</div>
+    </div> 
+    -->
+</div>

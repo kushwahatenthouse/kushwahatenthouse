@@ -1,0 +1,29 @@
+<div *ngIf="showAlert" style="position: fixed;top: 0;bottom: 0;right: 0;left: 0;z-index: 999;background: #111;opacity: .6;">
+    
+</div>
+<div *ngIf="showAlert" class="apx-alert-outdiv not_select" (click)="closeAlert($event)" style="position: fixed;top: 0;bottom: 0;right: 0;left: 0;z-index: 1000;overflow-y: auto;">
+    <div class="middle-page">
+        <div  [ngClass]="{'animate-alert':showAlert}">
+            <div class="font-15 title-part">{{title}}
+                <ng-content select="[title]"></ng-content>
+                <div *ngIf="closable" (click)="close_it()" class="inline-block float-right cursor"><img src="../../assets/icon/close.png" width="16px"></div>
+            </div>
+            <div class="padding-8 font-14">
+                <ng-content></ng-content>{{body}}
+            </div>
+            <div class="justify" *ngIf="buttons.length > 0">
+                <apx-button *ngFor="let button of buttons"
+                    style="float:right;margin-left: 8px;"
+                    [label]="button.label"
+                    [button_type]="button.button_type ? button.button_type :'secondary'"
+                    [size]="button.size ? button.size :'S'"
+                    [type]="button.type ? button.type : 'text'"
+                    [icon_position]="button.button_position ? button.button_position :'left'"
+                    [disabled]="button.disabled ? button.disabled : false"
+                    [icon_type]="button.icon_type ? button.icon_type :'fa fa-home'"
+                    (clicked)="button_checked(button.label)"
+                ></apx-button><br>
+            </div><br>
+        </div>
+    </div>
+</div>

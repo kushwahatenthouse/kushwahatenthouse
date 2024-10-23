@@ -9,7 +9,7 @@ import { ImpFunctionService } from '../imp_function/imp-function.service';
 })
 export class ApxHeader1Component implements OnInit,OnChanges {
 
-  @Input('data') data:any=[];
+  @Input('data') data:any=[{text:'DJ Sound',url:''}];
 
   @Input('isLoggedIn') isLoggedIn:boolean = false;
   @Input('logging') logging:boolean=false;

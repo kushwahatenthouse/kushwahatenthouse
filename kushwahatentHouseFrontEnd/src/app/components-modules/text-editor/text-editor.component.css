@@ -1,0 +1,20 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #111111;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .striped-table > tbody > tr:nth-child(even) {
+    background-color: #e6ebf0;
+  }
+
+  .middleinrwo{
+    line-height: 32px;
+    vertical-align: middle;
+  }

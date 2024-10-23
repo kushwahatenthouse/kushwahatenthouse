@@ -1,0 +1,45 @@
+<div class="apx-h1 apx-h-height" id="apx-h1" [ngClass]="{'sticky_header':sticky_header}" style="position: relative;border-bottom: 1px solid #ccc;background: white;">
+    <div style="max-width:1291px;margin: auto;">
+        <div class="apx-t-menu hide-xl" (click)="toggle_slider()">
+            <i class="fa fa-align-justify font-120 hide-xl"></i>
+        </div>
+        <div class="apx-t-menu apx-height apx-h-height hide-s hide-m logo-m text-line1 relative">
+            <!-- <b class="color-green1">cos<span>&#178;</span></b> -->
+            <div *ngIf="(headerText.length > 2 && isMobile) ;else OnlyLogo" class="header-txt text-line1">{{headerText}}</div>
+            <ng-template #OnlyLogo>
+                <img class="" src="Square-Storm.png" alt="cosSquare logo" style="max-height:80%;padding-top: 20%;">
+            </ng-template>
+        </div>
+        <apx-expanded-subheader class="hide-l hide-s hide-m" [data]="data" [currentPage]="currentPage"></apx-expanded-subheader>
+        
+        <div class="apx-t-menu apx-h-height" *ngIf="search" style="line-height: normal;width: 50%;position: relative;padding-left: 0px;padding-right: 0px;">
+            <apx-input
+                [size]="'M'"
+                [background]="'#ffffff'"
+                [searchable]="true"
+                (keyup_Event)="keyupEvent($event)"
+                (search_Event)="search_click($event)"
+            ></apx-input>
+            <div *ngIf="search_result.length > 0" class="border search-result">
+                <div *ngFor="let d of search_result" style="padding:10px" [innerHTML]="d.text"></div>
+            </div>
+        </div>
+        <div class="apx-t-menu apx-h-height" style="float:right">
+            <div style="display:inline-block;">
+                <apx-button
+                    [button_type]="'tertiary'"
+                    [type]="'icon'"
+                    [icon_type]="userName?'':(logging?'fa fa-spinner fa-spin':'fa fa-user')"
+                    [round_label]="userName"
+                    [size]="'S'"
+                    (clicked)="btn_clicked(isLoggedIn)"
+                ></apx-button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<apx-side-slider
+    [slider_data]="data"
+    [show_slider]="tg_slider"
+></apx-side-slider>

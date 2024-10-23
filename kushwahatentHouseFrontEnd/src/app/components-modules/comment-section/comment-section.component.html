@@ -1,0 +1,28 @@
+
+<div *ngFor="let d of data; let i = index" style="margin:8px;max-width: 900px;display: flex;border-bottom: 1px solid #dfdfdf;" class="opensans">
+    <div style="margin:10px;flex:40px">
+        <img src="../../assets/nature.jpg" width="50px" height="50px" style="border-radius: 50%;">
+    </div>
+    <div  style="margin:10px;width: calc(100% - 100px);flex-grow: 1;">
+        <div class="text-line1" style="font-weight: 600;max-width: calc(100% - 10px)">{{d.name}}</div>
+        <div class="font-80 date-color margin-ts"><span *ngIf="d.rating">{{d.rating}} &nbsp;&nbsp;</span>{{d.date | date:'MMM d, y'}}</div>
+        <div id="{{d.comment_id}}" class="font-90 color2 margin-top text-line3">
+            {{d.comment}}<span (click)="full_cmt(d.comment_id)" class="cursor bold" style="color:rgb(50, 50, 194)">&nbsp;&nbsp;Less</span>
+        </div>
+        <div *ngIf="more_avai(d.comment_id)" style="color:rgb(50, 50, 194)"><span (click)="full_cmt(d.comment_id)" class="cursor">more...</span></div>
+        <div *ngIf="d.reply && d.reply>0" class="margin-top" style="color:rgb(4, 4, 168)"><span [routerLink]="['/comment-reply',d.comment_id]" routerLinkActive="active" class="margin-top font-90 bold cursor">{{d.reply}} {{d.reply>1?'REPLIES':'REPLY'}}</span> </div>
+        <br>
+    </div>
+</div>
+<div *ngIf="false" style="margin:8px;max-width: 900px;display: flex;" class="border">
+    <div style="margin:10px;flex:60px">
+        <img src="../../assets/nature.jpg" width="50px" height="50px" style="border-radius: 50%;">
+    </div>
+    <div  style="margin:10px;width: calc(100% - 100px);flex-grow: 1;">
+        <div class="text-line1 border" style="font-weight: 600;max-width: calc(100% - 10px)">Rajesh Kumar Kumar Rajesh Kumar Kumar</div>
+        <div class="font-80 date-color">4.5* <span class="float-right">16jun,21</span></div>
+        <div class="font-90 color2 border margin-top">
+            Hello this is rajesh kumar and i am writnin
+        </div>
+    </div>
+</div>

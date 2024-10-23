@@ -1,0 +1,369 @@
+<div *ngIf="label_position=='inside'" #divbox class="m-autocomplete-div" [ngStyle]="{'width':st_width,'height':st_height}">
+    <label
+        [ngClass]="{'low_font':disabled,'active':default_value||focus_s|| selected_count>0}"
+        [ngStyle]="{'top':size_data[size]['lb_top'],'left':size_data[size]['lb_left']}"
+        class="placeholder_css"
+        (click)="open_dropdown();autocomplete1.focus()">
+        {{placeholder_value}}
+    </label>
+
+    <input
+        style="flex-grow: 1;"
+        [attr.data-cll]="d_d_list2"
+        #autocomplete1
+        [ngClass]="{'activate_text':activate_text_status,'input_style':(!error&&!disabled),'disable_stype':disabled}"
+        [ngStyle]="{'height':size_data[size]['height'],'padding':size_data[size]['padding'],'border':error_border,'border-radius':error_border_radius}"
+        [value]="default_value"
+        tabindex="2"
+        type="text"
+        (focus)="focus()"
+        (blur)="blur()"
+        (click)="open_dropdown()"
+        (keyup)="value_entered(autocomplete1.value,$event)"
+        (keydown)="clear_activate(autocomplete1,$event)"
+        [readonly]="filter=='no'"
+    >
+    <span *ngIf="show_drop_down"
+        [ngStyle]="{'line-height':size_data[size]['height']}" (click)="blur()"
+        style="cursor: pointer;position: absolute;right:12px;color:#111111;font-size: 18px;z-index:4;vertical-align: middle;">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </span>
+    <span *ngIf="!show_drop_down"
+        [ngStyle]="{'line-height':size_data[size]['height']}"
+        (click)="open_dropdown()" style="cursor: pointer;position:absolute;right:12px;color:#111111;font-size: 18px;z-index: 4;vertical-align: middle;">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </span>
+
+
+    <div class="hoer" *ngIf="selected_count>0 && !show_drop_down" (click)="open_dropdown();autocomplete1.focus()"
+        [ngStyle]="{'min-width':fhw,'height':size_data[size]['height']}" style="cursor:pointer;position:
+        absolute;left: 0;z-index: 2;overflow-x: hidden;">
+        <div *ngIf="selected_count>0 && fixed_height"
+            (click)="autocomplete1.focus();open_dropdown()" [ngStyle]="{'top':size_data_rs[size]['lb_top'],'min-width':fhw}" style="left: 16px;z-index: 2;" class="placeholder_css1">
+        </div>
+            <div *ngIf="mfhv && fixed_height" class="fixed_height_text"
+            [ngStyle]="{'top':size_data_rs[size]['lb_top'],'max-width':fhw}" style="left:0;margin-left:16px;font:normal normal normal 14px/19px opensans;margin-right:0px;position:absolute;">
+            {{scrollData}}
+            </div>
+    </div>
+
+
+    <!--fixed height right side selected options-->
+    <!-- <span class="num_cl" *ngIf="false && fixed_height && fixed_height_selected && selected_count>0" [ngStyle]="{'padding':size_data[size]['padding']}" style="cursor:pointer;position: absolute;right:26px;color:#111111;">
+        <span (click)="open_pop_up()" style="padding-left:4px;font: normal normal bold 14px/19px opensans;text-decoration: underline;right:8px;position: absolute;"
+        [ngStyle]="{'top':size_data_rs[size]['lb_top']}">
+            {{selected_count}}
+        </span>
+    </span> -->
+
+    <div (click)="open_pop_up()" (mouseover)="tooltip_over()" *ngIf="fixed_height && fixed_height_selected && selected_count>0 && !show_drop_down"
+        [ngStyle]="{'line-height':size_data[size]['height']}" 
+        style="position:absolute;right:30px;z-index: 2;color:#111111;vertical-align: middle;">
+        <div style="position: relative;" [ngClass]="{'toollip_v':left_set_tt,'toollip_vr':!left_set_tt}"  class="toollip">
+            <span #tooltip_p [ngStyle]="{'height':size_data[size]['height']}" style="font: normal normal bold 14px/19px opensans;text-decoration: underline;">
+            {{selected_count}}
+            </span>
+            <div #tooltip_h [ngStyle]="{'top':tooltip_top}"
+                [ngClass]="{'containt_vr':left_set_tt,'containt_v':!left_set_tt}" style="position: absolute;">
+                <span class="tooltip_head">{{selected_count}} Selected</span><br>
+                <div style="margin-top:8px"></div>
+                <div [innerHTML]="tooltipData"></div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="show_drop_down && data.length>0" (click)="click_monitor()"
+        [ngClass]="{'left_set':left_set,'right_set':!left_set}" style="position: absolute;"
+        class="drop_down_options" [ngStyle]="{'top':size_data[size]['height'],'width':drop_down_width}">
+        <div class="drop_down_div">
+            <div *ngIf="enableSelectAll" style="position: relative;"
+                (click)="selectAllItems(currentstate.state)" data-cl="" [attr.data-cll]="d_d_list" class="selected-items {{d_d_list}}">
+                <apx-checkbox
+                    #currentstate
+                    style="max-width: 100%;"
+                    [label]="select_all_label"
+                    [type]="'Emphasised'"
+                    [preventClick]="true"
+                    [width]="'Auto'"
+                    [state]="total_data_count==selected_count?'Selected':(selected_count==0?'Unselected':'Indeterminate')"
+                    (checkbox_click)="selectAllItems(currentstate.state)"
+                >
+                </apx-checkbox>
+
+            </div>
+            <div style="position: relative;" (click)="option_clicked(dat,'n')" title={{dat.value}} *ngFor="let dat of data" data-cl=""   [ngStyle]="{'white-space':dropdownwrap?'nowrap':''}"
+                [attr.data-cll]="d_d_list" class="{{d_d_list}}"
+                (click)="autocomplete1.focus();">
+                <apx-checkbox
+                    style="width: 100%;"
+                    [label]="dat.bold_value"
+                    [type]="'Emphasised'"
+                    [width]="'Auto'"
+                    [state]="dat.selected?'Selected':'Unselected'"
+                    (checkbox_click)="autocomplete1.focus();option_clicked(dat,'y')"
+                >
+                </apx-checkbox>
+                <span *ngIf="thumbnail_shape!='none'" style="position: absolute;right:8px;">
+                    <i *ngIf="dat.icon!=undefined && dat.icon!=''" style="font-size: 20px;" class="{{dat.icon}}" [ngStyle]="{'color':dat.color}"></i>
+                    <img *ngIf="dat.image!=undefined && dat.image!=''" [ngClass]="{'round':thumbnail_shape=='circle'}" style="width:20px;height: 20px;"src="{{dat.image}}">
+                </span>
+            </div>
+        </div>
+
+
+        <div *ngIf="selected_count > 0" style="overflow-y:auto;padding:8px;font: normal normal bold 14px/19px opensans;border-top: 1px solid #959595;">
+            <apx-button *ngIf="selected_count>0" [button_type]="'tertiary'" [size]="'S'"
+            [label]="selected_count" (clicked)="open_pop_up()"
+            style="float:left;cursor: pointer;"></apx-button>
+            <apx-button [button_type]="'tertiary'" [size]="'S'" [label]="'Done'"
+            (clicked)="done_all_selected()" style="float:right;margin-right:9px;cursor: pointer;"></apx-button>
+            <apx-button [button_type]="'tertiary'" [size]="'S'" [label]="'Cancel'"
+            (clicked)="clear_all_selected(autocomplete1);" style="float:right;margin-right:20px;cursor:pointer;"></apx-button>
+        </div>
+    </div>
+    <div *ngIf="data.length==0 && no_data" class="drop_down_options"
+    [ngStyle]="{'top':size_data[size]['height']}">
+        <div style="margin:30px auto;text-align: center;font-size: 16px;"
+        [innerHTML]="no_data_msg"></div>
+    </div>
+</div>
+
+
+
+
+<div #divbox class="m-autocomplete-div" [ngStyle]="{'width':st_width,'height':st_height}" *ngIf="label_position=='outside'">
+    <input
+        #autocomplete1
+        [attr.data-cll]="d_d_list2"
+        [ngClass]="{'activate_text':activate_text_status,'input_style':(!error&&!disabled),'disable_stype':disabled}"
+        [ngStyle]="{'height':size_data[size]['height'],'padding':size_data[size]['padding'],'border':error_border,'border-radius':error_border_radius}"
+        [value]="default_value"
+        tabindex="2"
+        type="text"
+        (focus)="focus()"
+        (blur)="blur()"
+        (click)="open_dropdown()"
+        (keyup)="value_entered(autocomplete1.value,$event)"
+        (keydown)="clear_activate(autocomplete1,$event)"
+        [readonly]="filter=='no'"
+    >
+    <span *ngIf="show_drop_down" [ngStyle]="{'padding':size_data[size]['cross_padding']}"
+    (click)="blur()" style="cursor: pointer;position: absolute;right:4px;top:3px;color:#111111;font-size:15px;z-index: 11;"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+    <span *ngIf="!show_drop_down" [ngStyle]="{'padding':size_data[size]['cross_padding']}"
+    (click)="open_dropdown()" style="cursor: pointer;position:absolute;right:4px;top:3px;color:#111111;font-size: 15px;z-index: 11;"><i class="fa fa-angle-down" ariaďżžhidden="true"></i></span>
+
+    <!--fixed height right side selected options-->
+    <span *ngIf="false && fixed_height && fixed_height_selected && selected_data.length>0"
+    [ngStyle]="{'padding':size_data[size]['cross_padding']}" (click)="open_pop_up()" style="cursor:pointer;position: absolute;right:26px;top:3px;font: normal normal bold 14px/19px opensans;color:#111111;text-decoration: underline;">{{selected_data.length}} Selected</span>
+    <div class="hoer" *ngIf="selected_data.length>0" (click)="open_dropdown();autocomplete1.focus()"
+    [ngStyle]="{'min-width':fhw,'height':size_data[size]['height']}" style="cursor:pointer;position:absolute;left: 0;z-index: 12;overflow-x: hidden;">
+    <div *ngIf="default_value.length==0 && !focus_s && selected_data.length>0 && fixed_height"
+    (click)="autocomplete1.focus();open_dropdown()" [ngStyle]="{'top':size_data_rs[size]['lb_top'],'minďżžwidth':fhw}" style="left: 16px;z-index: 2;" class="placeholder_css1"></div>
+    <div *ngIf="mfhv && !focus_s && fixed_height" class="fixed_height_text"
+        [ngStyle]="{'top':size_data_rs[size]['lb_top'],'max-width':fhw}" style="left:0;margin-left:16px;font:normal normal normal 14px/19px opensans;margin-right:0px;position:absolute;">
+        {{selected_data.join(', ')}}
+    </div>
+
+    </div>
+    <div (click)="open_pop_up()" (mouseover)="tooltip_over()" *ngIf="fixed_height && fixed_height_selected && selected_data.length>0"
+        [ngStyle]="{'padding':size_data[size]['padding'],'top':size_data_rs[size]['top_n']}" style="position: absolute;right:19px;z-index: 99;color:#111111;">
+        <div style="position: relative;" [ngClass]="{'toollip_v':left_set_tt,'toollip_vr':!left_set_tt}" class="toollip">
+            <span #tooltip_p [ngStyle]="{'height':size_data[size]['height']}" style="font: normal normal bold 14px/19px opensans;text-decoration: underline;">
+            {{selected_data.length}}
+            </span>
+            <div #tooltip_h [ngStyle]="{'top':tooltip_top}"
+                [ngClass]="{'containt_vr':left_set_tt,'containt_v':!left_set_tt}" style="position: absolute;">
+                <span class="tooltip_head">{{selected_data.length}} Selected</span><br>
+                <div style="margin-top:8px"></div>
+                <div [innerHTML]="tooltip_data()"></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="show_drop_down && new_data.length>0" (click)="click_monitor()"
+        [ngClass]="{'left_set':left_set,'right_set':!left_set}" style="position: absolute;"
+        class="drop_down_options" [ngStyle]="{'top':size_data[size]['height'],'width':drop_down_width}">
+        <div class="drop_down_div">
+            <div *ngIf="enableSelectAll && new_data.length>0" style="position: relative;"
+                (click)="autocomplete1.focus();chekk.click()" data-cl="" [attr.data-cll]="d_d_list" class="selected-items {{d_d_list}}">
+                <input type="checkbox" [ngClass]="{'display_hidden':true}" style="z-index: -1;"
+                [checked]="selectAllState == 'checked'" #chekk
+                [indeterminate]="selectAllState =='indeterminate'"
+                (change)="autocomplete1.focus();" class="drop_down_checkbox">
+                <apx-checkbox
+                style="max-width: 100%;"
+                #checked_opt
+                [label]="select_all_label"
+                [type]="'Emphasised'"
+                [width]="'Auto'"
+                [state]="selectAllState == 'checked'?'Selected':(selectAllState =='indeterminate'?'Indeterminate':'Unselected')"
+                (checkbox_click)="autocomplete1.focus();chekk.click()"
+                >
+                </apx-checkbox>
+            </div>
+            <div style="position: relative;" title={{dat.value}} *ngFor="let dat of new_data" data-cl="" [ngStyle]="{'white-space':dropdownwrap?'nowrap':''}"
+                [attr.data-cll]="d_d_list" class="{{d_d_list}}"
+                (click)="autocomplete1.focus();option_clicked(dat)">
+                <apx-checkbox
+                    style="max-width: 100%;"
+                    #checked_opt
+                    [label]="dat.bold_value"
+                    [type]="'Emphasised'"
+                    [width]="'Auto'"
+                    [state]="check_selected_data(dat.value)?'Selected':'Unselected'"
+                    (checkbox_click)="autocomplete1.focus();option_clicked(dat)"
+                >
+                </apx-checkbox>
+                <span class="dplist_image" *ngIf="dat.value!='' && thumbnail_shape!='none'" style="position: absolute;right: 8px;"><i *ngIf="dat.image=='' && dat.thumbnail!=''" style="font-size: 20px;"
+                class="{{dat.thumbnail}}" [ngStyle]="{'color':dat.color}"></i><img *ngIf="dat.image!=''"
+                [ngClass]="{'round':thumbnail_shape=='circle'}" style="width:20px;height: 20px;"
+                src="{{dat.image}}"></span>
+                <input *ngIf="false" #checked_opt type="checkbox"
+                [checked]="check_selected_data(dat.value)" class="drop_down_checkbox">
+                <span *ngIf="false" [ngClass]="{'font_bold':check_selected_data(dat.value)}"
+                class="drop_down_value" [innerHTML]="dat.bold_value"> </span>
+            </div>
+        </div>
+        <div *ngIf="selected_count > 0 " style="height: 65px;font: normal normal bold 14px/19px opensans;padding:8px;border-top: 1px solid #959595;">
+        <apx-button *ngIf="selected_count>0" [button_type]="'tertiary'" [size]="'M'"
+        [label]="selected_count" (clicked)="open_pop_up()"
+        style="float:left;cursor: pointer;"></apx-button>
+        <apx-button [button_type]="'tertiary'" [size]="'S'" [label]="'Done'"
+        (clicked)="done_all_selected()" style="float:right;margin-right:9px;cursor: pointer;"></apx-button>
+        <apx-button [button_type]="'tertiary'" [size]="'S'" [label]="'Cancel'"
+        (clicked)="clear_all_selected(autocomplete1);" style="float:right;margin-right:20px;cursor: pointer;"></apx-button>
+        </div>
+    </div>
+    <div *ngIf="new_data.length==0 && no_data" class="drop_down_options"
+    [ngStyle]="{'top':size_data[size]['height']}">
+    <div style="margin:30px auto;text-align: center;font-size: 16px;"
+    [innerHTML]="no_data_msg"></div>
+    </div>
+    <!-- don't show for fixed height autocomplete-->
+    <div *ngIf="!fixed_height && selected_data.length>0">
+    <div id="pills_div" [ngStyle]="{'top':size_data[size]['div_top']}" style="padding-left: 8px;" #pills_div
+    [ngClass]="{'border_bottom':!show_pills_div2}">
+    <div class="pills_div" *ngFor="let data of selected_data" style="display: inline-block;padding:8px 4px 4px 4px">
+    <apx-pills
+        #pills_are
+        *ngIf="take_thumbnail(data).indexOf('.')>0 && thumbnail_shape!='none' ;else other_content"
+        [label]="data"
+        [size]="'S'"
+        (clicked)="outputEvent($event)"
+    ></apx-pills>
+
+    <ng-template #other_content>
+    <apx-pills
+        #pills_are
+        [label]="data"
+        [size]="'S'"
+        [icon_name]="'fas fa-times'"
+        [color]="take_thumbnail_color(data)"
+        [icon_position]="'left'"
+        [selected]="true"
+        (clicked)="outputEvent($event)"
+    ></apx-pills>
+    </ng-template>
+    </div>
+    </div>
+
+    <div id="pills_div1" [ngStyle]="{'top':size_data[size]['div1_top']}" style="padding-left: 8px;"
+        #pills_div1>
+        <div style="position: absolute;top:-3px;height:56px;overflow-y: hidden;">
+
+        <div #ppt class="pills_div2" *ngFor="let data of selected_data_pills" style="display: inlineďżžblock;padding: 4px 4px 12px 4px;">
+        <ng-container *ngIf="data == 'remove all';else second">
+            <apx-pills
+                #pills_are
+                *ngIf="take_thumbnail(data).indexOf('.')>0 && thumbnail_shape!='none' ;else other_content"
+                [label]="data"
+                [size]="'S'"
+                (clicked)="outputEvent($event)"
+            ></apx-pills>
+
+            <ng-template #other_content>
+                <apx-pills
+                    #pills_are
+                    [label]="data"
+                    [size]="'S'"
+                    [icon_name]="'fas fa-times'"
+                    [color]="take_thumbnail_color(data)"
+                    [icon_position]="'left'"
+                    (clicked)="outputEvent($event)"
+                ></apx-pills>
+            </ng-template>
+        </ng-container>
+        <ng-template #second>
+            <ng-container *ngIf="data.indexOf('more') > -1;else third">
+            <apx-button [button_type]="'Secondary'" [label]="data" [size]="'S'" 
+            (clicked)="open_pop_up()">
+            </apx-button>
+            </ng-container>
+        </ng-template>
+        <ng-template #third>
+            <apx-pills #pills_are [label]="data" [size]="'S'"
+            (clicked)="outputEvent($event)">
+            </apx-pills>
+        </ng-template>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="alertWrapper" *ngIf="pop_up_box">
+    <div class="backdrop"></div>
+    <div class="popup" [ngStyle]="{'min-width':'55%'}">
+    <div class="title" [ngStyle]="{}">{{selected_count}} Selected</div>
+    <div class="description" [ngStyle]="{'max-height':'285px','overflow-y':'scroll'}">
+
+    <div class="" *ngFor="let datav of dataHolder" style="display: inline-block;padding: 8px 8px 0px 0px;">
+    <apx-pills
+        *ngIf="data.thumbnail==undefined ;else other_content"
+        [label]="datav.value"
+        [selected]="datav.selected"
+        [size]="'S'"
+        (clicked)="pop_up_add_remove($event,datav)"
+    ></apx-pills>
+
+    <ng-template #other_content>
+    <apx-pills
+        #pills_are
+        [label]="datav.value"
+        [size]="'S'"
+        [selected]="datav.selected"
+        [icon_name]="'fas fa-times'"
+        [color]="take_thumbnail_color(datav.value)"
+        [icon_position]="'left'"
+        (clicked)="pop_up_add_remove($event,datav)"
+    ></apx-pills>
+    </ng-template>
+    </div>
+    </div>
+    <div class="btnSection">
+        <apx-button *ngIf="changesMade" class="btnPrimary" style="float:right"
+        [button_type]="'emphasized'"
+        [label]="'Save Changes'"
+        (clicked)="save_changes()"
+        ></apx-button>
+        <apx-button *ngIf="!changesMade" class="btnPrimary" style="float:right"
+        [button_type]="'emphasized'"
+        [label]="'Save Changes'"
+        [disabled]="true"
+        ></apx-button>
+        <apx-button class="btnPrimary" style="float:right"
+        [button_type]="'secondary'"
+        [label]="'Cancel'"
+        (clicked)="pop_up_box=!pop_up_box"
+        ></apx-button>
+        <apx-button class="btnPrimary" *ngIf="this.selectedDataholder.length==total_data_count" style="float:right"
+        [button_type]="'secondary'"
+        [label]="'Remove all'"
+        (clicked)="remove_all()"
+        ></apx-button>
+        <apx-button class="btnPrimary" *ngIf="this.selectedDataholder.length!=total_data_count" style="float:right"
+        [button_type]="'secondary'"
+        [label]="'Select all'"
+        (clicked)="select_all()"
+        ></apx-button>
+    </div>
+    </div>
+</div>

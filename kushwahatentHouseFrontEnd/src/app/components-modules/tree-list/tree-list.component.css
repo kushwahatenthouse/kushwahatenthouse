@@ -1,0 +1,180 @@
+a{
+    color: #111111;
+}
+.apx-tree-view-one-line > div{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.apx-tree-view{
+    position: relative;
+}
+.apx-tree-selected{
+    /* background: #e6ebf0;
+    box-shadow: inset 0 0 0 1px #fff; */
+    font-weight: 600;
+}
+.apx-tree-view > div{
+    /* width: calc(100% - 20px); */
+    padding:8px 12px;
+}
+.apx-tree-view:hover{
+    background: #fafafa;
+    box-shadow: inset 0 0 0 1px #111111;
+    cursor: pointer;
+}
+.apx-arrow-chevrov{
+    width:8px;
+    top:50%;
+    position: absolute;
+    transform:translateY(-50%);
+    right:10px;
+}
+.apx-rotate90{
+    /* animation: rotate90 0.1s linear; */
+    transform: rotate(90deg);
+    top:30% !important;
+}
+@keyframes rotate90 {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(90deg);
+    }
+}
+.apx-display-hide{
+    display: none;
+}
+.tv_icon{
+    margin-right: 6px;
+    font-size: 16px;
+}
+.selectedText{
+    background: #fafafa;
+    box-shadow: inset 0 0 0 1px #111111;
+}
+
+
+
+
+/*  */
+
+.apx-tree-diagram{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+li span{
+    padding-left:16px;
+}
+li li span{
+    padding-left:28px;
+}
+li li li span{
+    padding-left:40px;
+}
+li li li li span{
+    padding-left:52px;
+}
+li li li li li span{
+    padding-left:64px;
+}
+li li li li li li span{
+    padding-left:76px;
+}
+.apx-tree-diagram li {
+    list-style-type: none;
+}
+.apx-tree-diagram ol{
+    margin:0px !important;
+    max-width: 100%;
+}
+.apx-tree-diagram label:last-child:after {
+    display: none;
+}
+.apx-tree-diagram li span {
+    display: flex;
+    align-items: center;
+    min-height:32px;
+    padding-right: 12px;
+    color: #111;
+    /* font-size: 13px; */
+    text-decoration: none;
+}
+
+.apx-tree-diagram li :not(section) :hover{
+    /* background: #fafafa;
+    box-shadow: inset 0 0 0 1px #111111; */
+    background: #e6ebf0;
+    cursor: pointer;
+}
+.apx-tree-diagram li > :not(.show_child) :hover{ /* pending work to here */
+    /* background: #fafafa;
+    box-shadow: inset 0 0 0 1px #111111; */
+    cursor: pointer;
+    font-weight: 600;
+}
+/* .apx-tree-diagram li span:before {
+    content: counters(item, ".") " ";
+} */
+  
+.display {
+    margin-right: 12px;
+    font-weight: bold;
+}
+.hide_child{
+    max-height: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.3s ease;
+}
+.show_child{
+    max-height: 200vh;
+    animation:overflowY 0.5s ease-in forwards;
+}
+@keyframes overflowY {
+    0%{
+        overflow-y: hidden;
+    }
+    100%{
+        overflow-y: auto;
+    }
+}
+.apx-chevron{
+    transform: rotate(0deg);
+    z-index: 1;
+    transition: 0.2s ease;
+    margin-left: auto;
+    font-size: 12px;
+    margin-right: -2px;
+}
+.apx-chevron-90{
+    transform: rotate(90deg);
+}
+.apx-tree-icon{
+    font-size:16px;
+    margin-right:4px
+}
+
+
+.tree-ch-cls-ph{
+    animation:ph-shiner 4s ease-in-out infinite;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right,#eeeeee 8%, #bbbbbb 18%, #eeeeee 38%);
+}
+@keyframes ph-shiner {
+    0%{
+        background-position: -400px 0;
+    }
+    100%{
+        background-position: 400px 0;
+    }
+}
+
+.show_child .tree-ch-cls::before{
+    content: '';
+    height: 32px;
+    padding-left:11px;
+    margin-left: -12px;
+    border-left:1px solid #cccccc;
+}

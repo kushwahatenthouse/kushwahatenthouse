@@ -1,0 +1,11 @@
+<button
+    *ngFor="let d of toggle_option;let i = index" (click)="select_toggle(d,i,disable)" [innerHTML]="d"
+    [tabindex]="disable ? -1 : 1"
+    (mouseover)="hover_on(d,i)"
+    (mouseout)="hover_out(d,i)"
+    [class]="random_cl(i)"
+    class="all_toggle"
+    [ngStyle]="{'font':size_data[size]['font'],'max-height':size_data[size]['height'],'padding':size_data[size]['padding'],'width':size_data[width]['width']}"
+    [ngClass]="{'keyboard_tab':key_state && disable ==false,'left_tg':i==0,'right_tg':i>0,'idle':!disable && d !=selected && selected.length>0,'normal_tg':!disable,'disable_tg':disable && d!=selected,'left_toggle':i==0,'right_toggle':i==(toggle_option.length-1)}"
+>
+</button>

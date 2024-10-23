@@ -1,0 +1,25 @@
+.primary-selected{
+    background: #111;
+    color:#fff;
+}
+.emphasized-selected{
+    background: #145da0;
+    color:#fff;
+    border:1px solid #145da0 !important;
+}
+.new-emphasized-selected{
+    background: #f48124;
+    color:#fff;
+    border:1px solid #f48124 !important;
+}
+.paging-count{
+    float: left;margin-bottom:12px
+}
+.paging-limit{
+    padding:5px;min-width: 28px;margin-right:4px;border-radius: 4px;cursor: pointer;
+    margin-top: 4px;
+}
+.pagingNo{
+    padding:5px 8px 5px 8px;min-width: 28px;margin-right:4px;border-radius: 4px;
+    margin-top:4px;
+}

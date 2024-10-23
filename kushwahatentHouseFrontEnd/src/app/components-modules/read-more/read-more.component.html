@@ -1,0 +1,10 @@
+<ng-container *ngIf="readMoreR ; else notRequired">
+    <div #readMore [innerHTML]="shortData | safeHTML" class="rm-shortData"></div>
+    ... <span class="font-weight400 color-green cursor" (click)="showAllData(false)">read more</span><br>
+</ng-container>
+<ng-template #notRequired>
+    <div [innerHTML]="data | safeHTML"></div>
+    <span *ngIf="lenExceed" class="font-weight400 color-green cursor" (click)="showAllData(true);">show less<br><br></span>
+</ng-template>
+
+<!-- <div [innerHTML]="data | safeHTML"></div> -->

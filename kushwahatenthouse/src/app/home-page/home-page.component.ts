@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Header1Module } from '../components-modules/header1/header1.module';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Header1Module],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

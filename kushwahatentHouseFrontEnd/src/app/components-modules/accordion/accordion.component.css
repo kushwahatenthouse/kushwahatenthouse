@@ -1,0 +1,24 @@
+.apx-acc-container{
+    border-bottom: 1px solid #706b6b;
+    font-size: 15px;
+    cursor: pointer;
+}
+.apx-acc-sec{
+    transition: .4s ease;
+    background: #fff;
+    color:#111;
+    text-align:left;
+    overflow-y: hidden;
+    max-height: 0vh;
+}
+.expand-sec{
+    max-height: 300vh;
+}
+.apx-acc-h:active{
+    cursor: pointer;
+    vertical-align: middle;
+    background:#e6ebf0;
+}
+.highbg{
+    background:#e6ebf0;
+}

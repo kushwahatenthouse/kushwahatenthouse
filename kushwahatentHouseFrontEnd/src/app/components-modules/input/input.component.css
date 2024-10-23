@@ -1,0 +1,26 @@
+.apx-input-cl{
+    display: inline-block;
+    width: 100%;
+}
+.border_st{
+    box-shadow: inset 0 0 0 1px #959595;
+    border: none;
+}
+.border_none{
+    border:none;
+}
+.content_edit{
+    outline: none;
+}
+.full_width{
+    width:100%;
+}
+.limit_width{
+    width:calc(100% - 34px);
+}
+.large_size{
+    min-height:120px;
+}
+.input-field:focus{
+    box-shadow: inset 0 0 0 1px #111111;
+}

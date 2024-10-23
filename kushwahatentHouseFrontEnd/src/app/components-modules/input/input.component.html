@@ -1,0 +1,40 @@
+<div *ngIf="type=='normal'" class="relative apx-input-cl" >
+    <input  #inp1
+        [type]="showPass ? 'text':fieldType" 
+        [placeholder]="label"
+        [ngClass]="{'border_st':background=='#ffffff','border_none':background!='#ffffff'}" 
+        [ngStyle]="{'height':input_style[size]['height'],'padding':input_style[size]['padding'],'font':input_style[size]['font'],'background':background}" 
+        style="width: 100%;"
+        class="input-field"
+        [value]="value"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [autofocus]="autofocus"
+        [maxLength]="maxLength"
+        (blur)="blured('input',inp1)"
+        (keyup)="keyupEvent($event,inp1.value)"
+        (mouseup)="keyupEvent($event,inp1.value)"
+    >
+    <i *ngIf="fieldType=='password'" (click)="passToggle()" class="fa absolute cursor" [ngClass]="{'fa-eye-slash':!showPass,'fa-eye':showPass}" [ngStyle]="{'top':input_style[size]['top'],'right':input_style[size]['right']}"></i>
+    <i *ngIf="searchable" (click)="search_result()" class="fa fa-search absolute cursor" [ngStyle]="{'top':input_style[size]['top'],'right':input_style[size]['right']}"></i>
+</div>
+    
+<div 
+    *ngIf="type=='div'"    
+    style="display: flex;">
+    <div contenteditable="true"
+    class="content_edit apx-input-div-cl"
+    #div_box
+    (focus)="focused('div')" 
+    (blur)="blured('div',div_box)"
+    (keyup)="keyupEvent($event,div_box.innerHTML)"
+    [ngClass]="{'large_size':large_div,'border_st':background=='#ffffff','border_none':background!='#ffffff','full_width':full_width,'limit_width':!full_width}" 
+    [ngStyle]="{'padding':input_style[size]['padding'],'font':input_style[size]['font'],'background':background}" 
+    style="width: 100%;background:#ecebeb;flex-grow: 1;"
+    [innerHTML]="divTmpValue | safehtml"
+    >
+    </div>
+    <div *ngIf="full_width==false" style="flex:40px;background:#ecebeb;padding-right: 12px;" class="center">
+        <img src="../../assets/bars.svg" width="20px" height="20px" [ngStyle]="{'margin-top':input_style[size]['margin-ts']}">
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="font-15 border-low margin-top marginLeft bg-white" id="qId-{{sectionName}}-{{index}}" [attr.indexId]="index">
+    <!-- <a [routerLink]="['/questions/'+data.exam_cat+'/'+data.searchBy]" style="display: hidden;"></a> -->
+    <div class="bold border-bottom padding-8">Q.{{index + 1}} 
+        <!-- <span style="float: right;" (click)="shareIt(data)" class="cursor">
+            <img src="../../../assets/icon/share.png" style="width: 22px !important;margin-bottom: -2px;padding-left: 4px">
+        </span>  -->
+        <span style="float:right">
+            <img [src]="lang==='en'?'../../../assets/icon/en-to-hn.jpg':'../../../assets/icon/hn-to-en.jpg'" (click)="changeLang()" class="cursor" style="width: 26px !important;margin-bottom: -2px;padding-left: 4px;margin-right: 12px;">
+            <i *ngIf="data._id" class="fa fa-bookmark{{!savedQ ?'-o':''}} font-20 cursor" (click)="toggleSaveFunc()" aria-hidden="true" style="width: 22px !important;padding-left: 4px"></i>
+        </span>
+    </div>
+        
+    <div class="padding-8">
+    <div >
+        <div class="bold" *ngIf="data.q_title.length > 0" MathJAX [appMath]="data.q_title | safeHTML"></div>
+        <div class="margin-ts color2 font-16 bold">
+            <apx-read-more
+                [data]="lang=='en'?data.para:data.para_hn"
+            ></apx-read-more>
+        </div>
+        <div class="margin-top color1 font-16" MathJAX [appMath]="lang=='en'?data.ques:data.ques_hn"></div>
+        <div class="margin-ts" *ngIf="tags && tags.length > 0">
+            <apx-tags
+                [openUrl]="true"
+                [data]="tags"  
+            ></apx-tags> 
+        </div>
+    </div>
+    <div *ngIf="data.ques_type!='sub' ; else subjective" class="padding-top" #refOptP>
+        <div #refOpt *ngFor="let da of data['options'];let i = index" class="margin-top option-padding apx-prc-brlw cursor" (click)="optClicked(refOpt,refOptP,da,data.ques_type,i)">
+            <div style="display: flex;">
+                <div style="flex:20px 0">{{i+1}}.</div>
+                <div style="flex-grow: 1;padding-left:4px;" class="optionlist" MathJAX [appMath]="lang=='en'?da:(data['options_hn'][i])"></div>
+                <!-- <div style="flex:0 20px"><img src="../../../assets/gif/correct.gif" width="20px" alt=""></div> -->
+            </div>
+        </div>
+        <!-- <div class="margin-top padding-8 font-16 bg-greenlow apx-prc-brlw cursor">
+            <div>a. Abc</div>
+        </div>
+        <div class="margin-top padding-8 font-16 bg-redlow apx-prc-brlw cursor">
+            <div>a. Abc</div>
+        </div>
+        <div class="margin-top padding-8 font-16 apx-prc-brlw cursor">
+            <div>a. Abc</div>
+        </div> -->
+    </div>
+    <ng-template #subjective>
+        <div class="padding-top">
+            <div class="row">
+                <div class="col-2 padding-12">
+                    <apx-input
+                        [size]="'S'"
+                        [(value)]="subAns"
+                        [label]="'Type answer here'"
+                    ></apx-input></div>
+                <div class="col-2 padding-12">
+                    <apx-button
+                        [label]="'Submit'"
+                        [size]="'S'"
+                        (clicked)="checkSubAns(data.ans[0].answer)"
+                    ></apx-button>
+                </div>
+            </div>
+        </div>
+        <div class="margin-ts font-15">
+            <span *ngIf="showSol && ca" class="color-green">*correct</span>
+            <span *ngIf="showSol && !ca" class="color-red">*Incorrect</span>
+        </div>
+    </ng-template>
+
+    <div ><!--*ngIf="ansAvail && showSol"-->
+        <div class="font-16 margin-top margin-bottom" style="padding-top: 8px;padding-bottom: 8px;">
+            <span class="padding-12 cursor inset-border ivory-bg bold" title="click here to view answer"  onClick="this.parentElement.nextElementSibling.classList.toggle('apx-prc-solh');this.classList.toggle('ivory-bg')">Show Answer</span>
+            <a *ngIf="data._id" [routerLink]="['/questions/'+data.exam_cat+'/'+data.searchBy]" title="click here to check discussion board" alt="discussion board url"><span class="padding-12 cursor bg-orange margin-left" onClick="this.parentElement.nextElementSibling.classList.toggle('apx-prc-solh');">Discussion Board</span></a>  
+        </div>
+        <div class="font-16 apx-prc-sol">
+            <div class="apx-prc-sol-o">
+                <div *ngIf="data.ans.length > 0 ;else ansnotav">
+                    <div class="font-16 bold">Answer : </div>
+                    <div *ngFor="let d of data.ans" class="font-weight500 margin-ts" MathJAX [appMath]="d.answer">&nbsp;&nbsp;</div>
+                    <div class="margin-top" *ngIf="data.hint">
+                        <img src="../../../assets/icon/hint.png" style="width: 20px;margin-bottom:-3px;margin-right:8px" alt=""><strong class="font-16">Hint : </strong> 
+                        <div class="margin-ts color2" MathJAX [appMath]="lang=='en'?data.hint:data.hint_hn">
+                        </div>
+                    </div>
+                    <div class="margin-top" *ngIf="data.sol">
+                        <img src="../../../assets/icon/solution.png" style="width: 20px;margin-bottom:-3px;margin-right:8px" alt=""><strong class="font-16">Solution : </strong> 
+                        <div class="margin-ts color2" MathJAX [appMath]="lang=='en'?data.sol:data.sol_hn">
+                        </div>
+                    </div>
+                    <div class="margin-top" *ngIf="data.ref">
+                        <img src="../../../assets/icon/reference.png" style="width: 20px;margin-bottom:-3px;margin-right:8px" alt=""><strong class="font-16">Reference : </strong> 
+                        <div class="margin-ts color2" MathJAX [appMath]="data.ref">
+                        </div>
+                    </div>
+                </div>
+                <ng-template #ansnotav>Answer not available</ng-template>
+                <!-- <div class="font-14 bold margin-ts margin-bs">
+                Solution : 
+                </div>
+                solution will come here -->
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
